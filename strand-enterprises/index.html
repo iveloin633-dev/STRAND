@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<!--
+  STRAND — v6, "immersion and sales".
+  1. THE ONE THING: being findable is the product. Not the website.
+  2. WHO'S LOOKING: owner of an established SLC business, 35-65. Already has
+     customers. Knows the site is embarrassing. Expects slow, expensive, jargon.
+  3. THE ARC: the film -> gold dust hero -> the 50ms problem -> before/after
+     proof -> the work, live on real devices -> what you get -> one week ->
+     one price -> see yours free.
+  4. STRAND = a single thread. It runs the page, then becomes the timeline.
+-->
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Strand Enterprises</title>
+<meta name="description" content="Custom websites for Salt Lake City businesses. Built to be found. Free preview before you pay.">
+<meta name="theme-color" content="#08080A">
+<link rel="canonical" href="https://strand-pearl.vercel.app/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308080A'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23C9A96E' stroke-width='4.5'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Strand Enterprises">
+<meta property="og:title" content="Strand Enterprises — Built to be found.">
+<meta property="og:description" content="Custom websites for Salt Lake City businesses. Free preview before you pay, live in about a week.">
+<meta property="og:url" content="https://strand-pearl.vercel.app/">
+<meta property="og:image" content="https://strand-pearl.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --font-sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+  --tr-56:-0.005em;--tr-48:-0.003em;--tr-40:0em;--tr-32:0.004em;--tr-28:0.007em;--tr-24:0.009em;
+  --tr-21:0.011em;--tr-19:0.012em;--tr-17:-0.022em;--tr-15:-0.019em;--tr-14:-0.016em;--tr-12:-0.010em;
+  --fs-display-2:32px;--tr-display-2:var(--tr-32);--lh-display-2:1.12;
+  --fs-display-3:24px;--tr-display-3:var(--tr-24);--lh-display-3:1.17;
+  --fs-lede:clamp(1.125rem,1.05rem + 0.35vw,1.3125rem);
+  --fs-body:1.0625rem;--fs-small:0.875rem;--fs-caption:0.75rem;
+  --space-section:88px;
+  --w-container:1260px;--gutter:22px;
+  --r-md:14px;--r-lg:28px;--r-pill:980px;
+  --ease:cubic-bezier(0.4,0,0.6,1);--out:cubic-bezier(.2,.7,.2,1);
+
+  --text-primary:#F5F3EF;--text-secondary:#8F877C;--text-tertiary:rgba(255,255,255,0.46);
+  --accent:#C9A96E;--accent-hover:#DCBF86;
+  --surface:#08080A;--surface-alt:#101013;--tile:#151518;
+  --hairline:rgba(255,255,255,0.12);--nav-bg:rgba(8,8,10,0.72);
+}
+@media(min-width:768px){:root{--space-section:120px;--gutter:32px;
+  --fs-display-2:44px;--tr-display-2:-0.004em;--lh-display-2:1.08;
+  --fs-display-3:28px;--tr-display-3:var(--tr-28);--lh-display-3:1.14;}}
+@media(min-width:1100px){:root{--space-section:160px;--gutter:22px;
+  --fs-display-2:56px;--tr-display-2:-0.008em;--lh-display-2:1.06;
+  --fs-display-3:32px;--tr-display-3:var(--tr-32);--lh-display-3:1.12;}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--text-primary);font-family:var(--font-sans);
+  font-size:var(--fs-body);line-height:1.47;letter-spacing:var(--tr-17);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg,video{max-width:100%;display:block}
+img{height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,figure{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.container{max-width:var(--w-container);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--space-section)}
+.alt{background:var(--surface-alt)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.display-2{font-size:var(--fs-display-2);font-weight:600;letter-spacing:var(--tr-display-2);line-height:var(--lh-display-2);text-wrap:balance}
+.lede{font-size:var(--fs-lede);letter-spacing:var(--tr-21);line-height:1.4;color:var(--text-secondary);max-width:44ch;margin-top:24px;text-wrap:pretty}
+.legal{font-size:var(--fs-caption);letter-spacing:var(--tr-12);line-height:1.4;color:var(--text-tertiary)}
+.nums{font-variant-numeric:tabular-nums}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;
+  padding:12px 22px;border-radius:var(--r-pill);background:var(--accent);color:#14110B;
+  font-size:var(--fs-small);font-weight:600;letter-spacing:var(--tr-14);white-space:nowrap;
+  transition:background .15s ease-out,transform .15s ease-out,box-shadow .3s var(--ease)}
+.btn:hover{background:var(--accent-hover);box-shadow:0 0 0 6px rgba(201,169,110,.14)}
+.btn:active{transform:scale(.97)}
+.btn--lg{padding:16px 30px;font-size:var(--fs-body);letter-spacing:var(--tr-17)}
+.btn--glass{background:rgba(255,255,255,.07);color:var(--text-primary);border:1px solid rgba(255,255,255,.16);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.btn--glass:hover{background:rgba(255,255,255,.13);box-shadow:none}
+
+/* ---------- the strand: one thread down the page ---------- */
+#thread{position:fixed;top:0;left:max(14px,calc(50vw - 648px));width:1px;height:100vh;
+  background:rgba(255,255,255,.08);z-index:5;pointer-events:none;display:none;opacity:0;transition:opacity .5s var(--ease)}
+#thread span{position:absolute;inset:0;background:linear-gradient(180deg,var(--accent),rgba(201,169,110,.2));
+  transform-origin:top;transform:scaleY(0)}
+@media(min-width:1320px){#thread{display:block}}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;
+  transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav.solid{background:var(--nav-bg);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom-color:var(--hairline)}
+.nav-in{max-width:var(--w-container);margin-inline:auto;padding:0 var(--gutter);height:60px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px}
+.wordmark{font-size:15px;font-weight:600;letter-spacing:.34em;color:var(--text-primary);cursor:pointer}
+.nav-links{display:none;gap:32px}
+.nav-links a{font-size:var(--fs-small);letter-spacing:var(--tr-14);color:rgba(245,243,239,.62);transition:color .15s ease-out}
+.nav-links a:hover{color:var(--text-primary)}
+.nav .btn{min-height:36px;padding:8px 18px}
+@media(min-width:820px){.nav-links{display:flex}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;
+  overflow:hidden;isolation:isolate;padding-top:60px}
+.hero-media{position:absolute;inset:0;z-index:-2;transform-origin:50% 40%}
+.hero-media video,.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(90% 70% at 50% 46%,rgba(8,8,10,.30) 0%,rgba(8,8,10,.62) 62%,rgba(8,8,10,.92) 100%),
+  linear-gradient(180deg,rgba(8,8,10,.6) 0%,rgba(8,8,10,0) 22%,rgba(8,8,10,0) 62%,#08080A 100%)}
+.hero-in{margin-top:auto;text-align:center;padding-top:40px;will-change:transform,opacity}
+.hero-eye{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.hero-h{font-size:clamp(58px,11.2vw,184px);font-weight:600;letter-spacing:-0.028em;line-height:.93;margin-top:28px}
+.hero-h .ln{display:block}
+.hero-h .gold{background:linear-gradient(180deg,#F6E7C4 0%,#D8BA82 45%,#A9864D 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.hero-lede{font-size:var(--fs-lede);letter-spacing:var(--tr-21);line-height:1.42;color:rgba(245,243,239,.74);
+  max-width:36ch;margin:28px auto 0;text-wrap:balance}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:40px}
+.hero-proof{margin-top:auto;display:flex;justify-content:center;padding:64px var(--gutter) 36px}
+.hero-proof li{padding:0 clamp(12px,3vw,36px);border-left:1px solid var(--hairline);text-align:center}
+.hero-proof li:first-child{border-left:0}
+.hero-proof b{display:block;font-size:clamp(15px,1.4vw,18px);font-weight:600;letter-spacing:var(--tr-17)}
+.hero-proof span{font-size:clamp(12px,1vw,13px);color:var(--text-secondary);letter-spacing:var(--tr-12)}
+@media(max-width:559px){
+  .hero-eye{font-size:11px;letter-spacing:.14em}
+  .hero-proof{padding-top:48px;padding-bottom:28px}
+  .hero-proof li{padding:0 12px}
+  .hero-proof b{font-size:14px;white-space:nowrap}
+  .hero-proof span{display:none}
+}
+/* the headline arrives as the film lets go */
+.hero-h .ln,.hero-eye,.hero-lede,.hero-actions,.hero-proof{transition:opacity 1s var(--out),transform 1.2s var(--out),filter 1s var(--out)}
+.hero-h .ln+.ln{transition-delay:.1s}
+.hero-lede{transition-delay:.28s}.hero-actions{transition-delay:.4s}.hero-proof{transition-delay:.55s}
+.intro-on .hero-h .ln{opacity:0;transform:translateY(.22em) scale(.985);filter:blur(14px)}
+.intro-on .hero-eye,.intro-on .hero-lede,.intro-on .hero-actions,.intro-on .hero-proof{opacity:0;transform:translateY(14px)}
+
+/* ---------- 50ms ---------- */
+.why{position:relative;height:250vh}
+.why-stick{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center}
+.why-text{font-size:clamp(30px,4.5vw,66px);font-weight:600;letter-spacing:-0.018em;line-height:1.12;max-width:21em;text-wrap:pretty}
+.js .why-text .w{opacity:.14}
+.why-text em{font-style:normal}
+.why-text .g{color:var(--accent)}
+.why-src{margin-top:36px;font-size:13px;letter-spacing:var(--tr-12);color:var(--text-tertiary)}
+.js .why-src{opacity:0;transition:opacity .6s var(--ease)}
+.js .why-src.on{opacity:1}
+
+/* ---------- before / after ---------- */
+.ba-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.ba-head .lede{margin-top:0;max-width:30ch}
+.ba-frame{margin-top:56px;border-radius:18px;overflow:hidden;border:1px solid var(--hairline);background:#000;
+  box-shadow:0 50px 140px -50px rgba(201,169,110,.35),0 30px 80px -30px rgba(0,0,0,.8)}
+.chrome{display:flex;align-items:center;gap:7px;padding:0 16px;height:36px;background:#141417;border-bottom:1px solid var(--hairline)}
+.chrome i{width:10px;height:10px;border-radius:50%;background:#2c2c31}
+.chrome b{margin-inline:auto;font-size:12px;font-weight:400;color:var(--text-tertiary);transform:translateX(-20px)}
+.ba-stage{position:relative;aspect-ratio:1400/875;touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;--x:50%}
+.ba-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--x);width:44px;margin-left:-22px;display:flex;justify-content:center;outline:none}
+.ba-handle::before{content:"";width:2px;height:100%;background:#F5F3EF;box-shadow:0 0 22px rgba(201,169,110,.9)}
+.ba-knob{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;
+  background:rgba(16,14,10,.5);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1.5px solid #F5F3EF;
+  display:grid;place-items:center;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.ba-handle:focus-visible .ba-knob{box-shadow:0 0 0 3px var(--accent)}
+.ba-tag{position:absolute;bottom:6%;left:var(--x);padding:6px 12px;white-space:nowrap;border-radius:var(--r-pill);font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;pointer-events:none;transition:opacity .3s var(--ease)}
+.ba-tag.l{transform:translateX(calc(-100% - 34px));background:rgba(0,0,0,.66);color:#fff}
+.ba-tag.r{transform:translateX(34px);background:var(--accent);color:#14110B}
+.ba-notes{display:grid;grid-template-columns:1fr;gap:28px;margin-top:56px}
+@media(min-width:820px){.ba-notes{grid-template-columns:repeat(3,1fr);gap:40px}}
+.ba-notes h3{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-tertiary)}
+.ba-notes s{display:block;margin-top:12px;color:var(--text-secondary);text-decoration-color:rgba(201,169,110,.7)}
+.ba-notes p{margin-top:6px;font-size:var(--fs-lede);letter-spacing:var(--tr-21);line-height:1.3;font-weight:600}
+.ba-legal{margin-top:40px}
+
+/* ---------- the work, on devices ---------- */
+.show-head{padding-top:var(--space-section);padding-bottom:24px}
+.show-head .lede{max-width:46ch}
+.show{position:relative;height:540vh}
+.show-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center;padding-top:60px}
+.show-glow i{position:absolute;inset:-10%;opacity:0;transition:opacity 1.1s var(--ease);
+  background:radial-gradient(42% 46% at 68% 54%,var(--c) 0%,transparent 72%)}
+.show-glow i.on{opacity:.42}
+.show-grid{position:relative;display:grid;grid-template-columns:4fr 8fr;gap:48px;align-items:center;width:100%}
+.show-items{position:relative;min-height:320px}
+.si{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(16px);pointer-events:none;
+  transition:opacity .5s var(--ease),transform .7s var(--out)}
+.si.on{opacity:1;transform:none;pointer-events:auto}
+.si-n{font-size:12px;font-weight:600;letter-spacing:.18em;color:var(--text-tertiary)}
+.si h3{font-size:var(--fs-display-2);font-weight:600;letter-spacing:var(--tr-display-2);line-height:1.04;margin-top:14px}
+.si-k{color:var(--accent);font-weight:600;margin-top:8px;font-size:var(--fs-small);letter-spacing:.04em}
+.si-b{color:var(--text-secondary);margin-top:18px;max-width:34ch;font-size:var(--fs-lede);letter-spacing:var(--tr-21);line-height:1.4}
+.si-a{display:inline-flex;align-items:center;gap:6px;margin-top:24px;min-height:44px;font-size:var(--fs-small);font-weight:600;
+  color:var(--text-primary);transition:color .15s ease-out}
+.si-a:hover{color:var(--accent)}
+.dots{display:flex;gap:6px;margin-top:20px}
+.dots button{width:44px;height:28px;position:relative}
+.dots button::before,.dots button::after{content:"";position:absolute;left:4px;right:4px;top:12px;height:3px;border-radius:2px;background:rgba(255,255,255,.16)}
+.dots button::after{background:var(--accent);transform-origin:left;transform:scaleX(var(--p,0))}
+.devices{position:relative;aspect-ratio:16/11.4;max-height:calc(100svh - 120px);perspective:1800px;
+  transform:translateY(var(--rise,0px));will-change:transform}
+.laptop{position:absolute;left:0;top:3%;width:89%;transform-origin:50% 92%;
+  transform:rotateX(var(--tilt,0deg)) scale(var(--ls,1));will-change:transform}
+.lt-screen{position:relative;border-radius:16px 16px 4px 4px;padding:2.2% 2.2% 3%;
+  background:linear-gradient(180deg,#1c1c20,#0d0d0f);border:1px solid #2c2c31;
+  box-shadow:0 0 0 1px rgba(0,0,0,.6) inset,0 60px 120px -40px rgba(0,0,0,.9)}
+.lt-glass{position:relative;aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:#000}
+.lt-glass img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;
+  transform:scale(1.045);transition:opacity .7s var(--ease),transform 1.6s var(--out)}
+.lt-glass img.on{opacity:1;transform:none}
+.lt-glass::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,0) 38%);pointer-events:none}
+.lt-base{position:relative;width:112%;margin-left:-6%;height:clamp(10px,1.6vw,16px);border-radius:0 0 18px 18px/0 0 12px 12px;
+  background:linear-gradient(180deg,#4a4a50 0%,#2a2a2f 38%,#141417 100%);box-shadow:0 30px 60px -20px rgba(0,0,0,.9)}
+.lt-base::before{content:"";position:absolute;left:50%;top:0;width:15%;height:42%;margin-left:-7.5%;border-radius:0 0 8px 8px;background:#1b1b1f}
+.phone{position:absolute;right:0;bottom:0;width:27%;aspect-ratio:9/19.4;border-radius:17%/8%;
+  background:#0b0b0d;border:1px solid #34343a;padding:3.4%;
+  box-shadow:0 0 0 1px rgba(0,0,0,.7),0 50px 90px -30px rgba(0,0,0,.95),0 0 60px -10px rgba(201,169,110,.18)}
+.ph-screen{position:relative;width:100%;height:100%;border-radius:14%/6.6%;overflow:hidden;background:#000}
+.ph-screen img{position:absolute;left:0;top:0;width:100%;opacity:0;transition:opacity .55s var(--ease);will-change:transform}
+.ph-screen img.on{opacity:1}
+.ph-island{position:absolute;top:2.6%;left:50%;width:32%;height:3.4%;margin-left:-16%;border-radius:99px;background:#000;z-index:2}
+@media(max-width:899px){
+  .show{height:500vh}
+  .show-stick{align-items:flex-start;padding-top:76px}
+  .show-grid{grid-template-columns:1fr;gap:16px}
+  .show-items{min-height:206px}
+  .si h3{font-size:30px}
+  .si-b{font-size:16px;margin-top:10px}
+  .si-a{margin-top:6px}
+  .dots{margin-top:0}
+  .devices{aspect-ratio:auto;height:min(54svh,470px)}
+  .laptop{display:none}
+  .phone{right:auto;left:50%;height:100%;width:auto;transform:translateX(-50%)}
+  .show-glow i{background:radial-gradient(60% 40% at 50% 72%,var(--c) 0%,transparent 72%)}
+}
+
+/* ---------- what you're buying (bento) ---------- */
+.bento{display:grid;grid-template-columns:1fr;gap:16px;margin-top:64px}
+@media(min-width:760px){.bento{grid-template-columns:repeat(2,1fr)}.t-wide{grid-column:span 2}}
+@media(min-width:1100px){.bento{grid-template-columns:repeat(6,1fr);gap:20px}.t1,.t2{grid-column:span 3}.t3,.t4,.t5{grid-column:span 2}.t-wide{grid-column:span 2}}
+.tile{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--tile);border:1px solid var(--hairline);
+  padding:36px 32px 0;min-height:340px;display:flex;flex-direction:column;gap:0}
+.tile .tv{margin-top:28px}
+@media(min-width:1100px){.tile{min-height:390px}.tile .tv{margin-top:auto}}
+.tile h3{font-size:var(--fs-display-3);font-weight:600;letter-spacing:var(--tr-display-3);line-height:var(--lh-display-3)}
+.tile p{margin-top:12px;color:var(--text-secondary);max-width:36ch}
+.tv{margin-top:auto;position:relative;height:190px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.tile:not(.on) *{animation-play-state:paused!important}
+/* tap */
+.mini-ph{width:250px;height:170px;border-radius:30px 30px 0 0;border:1px solid #2e2e34;border-bottom:0;background:#0c0c0e;padding:26px 22px 0;position:relative}
+.mini-ph .ln{display:block;height:9px;border-radius:5px;background:#26262b;margin-bottom:10px}
+.mbtn{position:relative;display:flex;align-items:center;justify-content:center;height:46px;margin-top:22px;border-radius:99px;
+  background:var(--accent);color:#14110B;font-weight:600;font-size:15px;overflow:hidden}
+.rip{position:absolute;left:62%;top:50%;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;background:rgba(255,255,255,.55);
+  transform:scale(0);opacity:0;animation:rip 2.8s var(--out) infinite}
+.tapdot{position:absolute;left:calc(22px + 62% * .85);top:96px;width:26px;height:26px;margin:-13px;border-radius:50%;
+  background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.5);animation:tap 2.8s var(--ease) infinite}
+@keyframes rip{0%,12%{transform:scale(0);opacity:.6}45%{transform:scale(2.4);opacity:0}100%{opacity:0}}
+@keyframes tap{0%{transform:translate(30px,40px);opacity:0}8%{opacity:1}12%{transform:translate(0,0) scale(.85)}20%{transform:scale(1)}55%{opacity:1}75%,100%{transform:translate(20px,30px);opacity:0}}
+/* search */
+.tv-search{flex-direction:column;align-items:stretch;justify-content:flex-end;gap:10px;padding-bottom:28px}
+.sbox{display:flex;align-items:center;gap:10px;height:46px;padding:0 18px;border-radius:99px;background:#0c0c0e;border:1px solid #2e2e34;font-size:15px}
+.sbox svg{flex:none;opacity:.5}
+.caret{width:1.5px;height:18px;background:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sres li{display:flex;flex-direction:column;gap:6px;padding:12px 16px;border-radius:14px;opacity:0;transform:translateY(10px);
+  transition:opacity .5s var(--ease),transform .6s var(--out)}
+.done .sres li{opacity:1;transform:none}
+.done .sres li:nth-child(2){transition-delay:.1s}.done .sres li:nth-child(3){transition-delay:.2s}
+.sres .hit{background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.35)}
+.sres .hit b{font-size:15px;font-weight:600}
+.sres .hit span{font-size:13px;color:var(--accent)}
+.sres li i{display:block;height:8px;border-radius:4px;background:#26262b;width:62%}
+.sres li i+i{width:84%;opacity:.6}
+/* responsive */
+.rframe{width:88%;height:168px;overflow:hidden;display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-radius:14px 14px 0 0;border:1px solid #34343a;border-bottom:0;
+  background:#0c0c0e;align-content:flex-start;animation:resp 7s var(--ease) infinite}
+.rframe i{flex:1 1 70px;height:26px;border-radius:6px;background:#24242a}
+.rframe i:first-child{flex-basis:100%;height:38px;background:linear-gradient(90deg,rgba(201,169,110,.55),rgba(201,169,110,.2))}
+@keyframes resp{0%,22%{width:88%}33%,55%{width:56%}66%,88%{width:30%}100%{width:88%}}
+/* fast */
+.tv-fast{align-items:center;padding-bottom:30px}
+.ring{position:relative;width:132px;height:132px}
+.ring>svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6;stroke-linecap:round}
+.ring .tr{stroke:#24242a}
+.ring .fl{stroke:var(--accent);stroke-dasharray:364;stroke-dashoffset:364}
+.ring .ck{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:scale(.6)}
+.seen .ring .fl{transition:stroke-dashoffset .95s cubic-bezier(.3,.6,.2,1);stroke-dashoffset:0}
+.seen .ring .ck{transition:opacity .4s ease-out 1s,transform .6s var(--out) 1s;opacity:1;transform:none}
+/* own */
+.tv-own{flex-direction:column;align-items:stretch;justify-content:flex-end;padding-bottom:28px;gap:8px}
+.tv-own li{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;background:#0c0c0e;border:1px solid #26262b;
+  font-size:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:0;opacity:0;transform:translateX(-10px);
+  transition:opacity .45s var(--ease),transform .6s var(--out)}
+.tv-own li em{margin-left:auto;font-style:normal;font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--accent)}
+.seen.tile .tv-own li{opacity:1;transform:none}
+.seen .tv-own li:nth-child(2){transition-delay:.12s}.seen .tv-own li:nth-child(3){transition-delay:.24s}.seen .tv-own li:nth-child(4){transition-delay:.36s}
+
+/* ---------- process (the thread) ---------- */
+.proc-grid{display:grid;grid-template-columns:1fr;gap:56px}
+@media(min-width:960px){.proc-grid{grid-template-columns:5fr 7fr;gap:72px}.proc-head{position:sticky;top:140px;align-self:start}}
+.tl{position:relative;padding-left:60px}
+.tl-track{position:absolute;left:11px;top:10px;bottom:10px;width:2px;border-radius:2px;background:rgba(255,255,255,.1)}
+.tl-fill{position:absolute;inset:0;border-radius:2px;background:linear-gradient(180deg,#E9D4A6,var(--accent));
+  transform-origin:top;transform:scaleY(0);box-shadow:0 0 14px rgba(201,169,110,.6)}
+.tl-step{position:relative;padding-bottom:104px;opacity:.36;transition:opacity .6s var(--ease)}
+.tl-step:last-child{padding-bottom:0}
+.tl-step.lit{opacity:1}
+.tl-dot{position:absolute;left:-60px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--surface);
+  border:2px solid rgba(255,255,255,.2);transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.tl-dot::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--accent);transform:scale(0);transition:transform .45s var(--out)}
+.tl-step.lit .tl-dot{border-color:var(--accent);box-shadow:0 0 0 7px rgba(201,169,110,.1),0 0 26px rgba(201,169,110,.55)}
+.tl-step.lit .tl-dot::after{transform:scale(1)}
+.tl-day{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.tl-step h3{font-size:var(--fs-display-3);font-weight:600;letter-spacing:var(--tr-display-3);line-height:var(--lh-display-3);margin-top:10px}
+.tl-step p{margin-top:12px;color:var(--text-secondary);max-width:40ch}
+
+/* ---------- price ---------- */
+.price-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center}
+@media(min-width:960px){.price-grid{grid-template-columns:1fr 1fr;gap:72px}}
+.price-big{font-size:clamp(46px,5.6vw,84px);font-weight:600;letter-spacing:-0.03em;line-height:1;margin-top:28px;white-space:nowrap;
+  background:linear-gradient(180deg,#FFFFFF 0%,#D9D1C3 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price-note{margin-top:24px;color:var(--text-secondary);max-width:42ch}
+.price-card{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:clamp(28px,4vw,44px);
+  background:linear-gradient(180deg,#18171b 0%,#121215 100%);border:1px solid var(--hairline)}
+.price-card::before{content:"";position:absolute;right:-30%;top:-40%;width:90%;height:90%;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(201,169,110,.22),transparent);pointer-events:none}
+.price-card h3{position:relative;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:12px}
+.inc li{position:relative;display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--hairline)}
+.inc li:first-child{border-top:0}
+.inc svg{flex:none;margin-top:3px}
+.price-card .btn{position:relative;width:100%;margin-top:28px}
+.price-card .legal{position:relative;margin-top:14px;text-align:center}
+
+/* ---------- close ---------- */
+.close{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;isolation:isolate;padding:120px 0}
+.close-media{position:absolute;inset:0;z-index:-2}
+.close-media video,.close-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.close-shade{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(70% 60% at 50% 50%,rgba(8,8,10,.74) 0%,rgba(8,8,10,.5) 55%,rgba(8,8,10,.8) 100%),
+  linear-gradient(180deg,#08080A 0%,rgba(8,8,10,0) 26%,rgba(8,8,10,0) 74%,#08080A 100%)}
+.close h2{font-size:clamp(44px,7.4vw,120px);font-weight:600;letter-spacing:-0.028em;line-height:.96;text-wrap:balance}
+.close .lede{margin:28px auto 0;max-width:40ch;color:rgba(245,243,239,.76);text-wrap:balance}
+.close .legal{margin-top:20px}
+.close .legal a{color:var(--text-primary);border-bottom:1px solid rgba(255,255,255,.3)}
+.lead{max-width:640px;margin:44px auto 0;text-align:left;display:grid;gap:14px}
+.lead-row{display:grid;gap:14px}
+@media(min-width:640px){.lead-row{grid-template-columns:1fr 1fr}}
+.fld{display:grid;gap:8px}
+.fld span{font-size:13px;font-weight:600;letter-spacing:.04em;color:rgba(245,243,239,.7)}
+.fld em{font-style:normal;font-weight:400;color:var(--text-tertiary)}
+.fld input{width:100%;height:54px;padding:0 18px;border-radius:14px;border:1px solid rgba(255,255,255,.16);
+  background:rgba(12,12,14,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  color:var(--text-primary);font:inherit;font-size:17px;letter-spacing:var(--tr-17);transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.fld input::placeholder{color:rgba(245,243,239,.34)}
+.fld input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(201,169,110,.18)}
+.lead .btn{width:100%;margin-top:6px}
+.lead .btn[disabled]{opacity:.7;cursor:default}
+.lead-msg{min-height:1.4em;text-align:center;font-size:var(--fs-small);color:var(--text-secondary)}
+.lead.sent .lead-row,.lead.sent .fld,.lead.sent .btn{display:none}
+.lead.sent .lead-msg{font-size:var(--fs-lede);font-weight:600;color:var(--text-primary);padding:28px 0}
+.gotcha{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--hairline);padding-block:56px calc(56px + env(safe-area-inset-bottom))}
+.foot-row{display:flex;flex-wrap:wrap;gap:20px 32px;justify-content:space-between;align-items:baseline}
+.foot a,.foot .cap{font-size:var(--fs-small);color:var(--text-secondary);transition:color .15s ease-out}
+.foot a:hover{color:var(--accent)}
+.foot .legal{margin-top:28px;max-width:70ch}
+
+/* ---------- mobile sticky CTA ---------- */
+.mcta{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;transform:translate(-50%,160%);
+  transition:transform .5s var(--out);box-shadow:0 14px 40px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.4)}
+.mcta.on{transform:translate(-50%,0)}
+@media(min-width:820px){.mcta{display:none}}
+
+/* ---------- intro ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:#000;overflow:hidden;--D:max(100vh,56.25vw)}
+#intro.vert{--D:max(100vw,56.25vh)}
+#intro video,#intro .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;will-change:transform}
+#im{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transform:translateY(calc(var(--D)*0.013));pointer-events:none;font-family:var(--font-sans)}
+#intro.vert #im{transform:none}
+#imw{font-weight:600;font-size:calc(var(--D)*0.121);line-height:1;letter-spacing:.06em;padding-left:.06em;
+  background:linear-gradient(100deg,#F2EADA 0%,#F2EADA 42%,#FFFEF8 50%,#F2EADA 58%,#F2EADA 100%);
+  background-size:320% 100%;background-position:100% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;
+  will-change:transform,opacity,filter}
+#intro.vert #imw{font-size:calc(var(--D)*0.071)}
+#ims{margin-top:calc(var(--D)*0.036);font-weight:500;font-size:calc(var(--D)*0.0225);
+  letter-spacing:.62em;padding-left:.62em;color:#E4C891;opacity:0}
+#intro.vert #ims{font-size:max(10px,calc(var(--D)*0.0135));margin-top:calc(var(--D)*0.022)}
+#skip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-size:12px;letter-spacing:.14em;color:rgba(255,255,255,.34);opacity:0;
+  transition:opacity .3s var(--ease);pointer-events:none}
+
+/* ---------- motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+  #thread span{display:none}
+}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var CFG={
+    desk:{webm:'intro/strand_desk.webm',mp4:'intro/strand_desk.mp4',still:'intro/still_desk.jpg',
+          TX:2.28,MO:[3.40,3.78],OO:[3.62,4.10]},
+    vert:{webm:'intro/strand_vert.webm',mp4:'intro/strand_vert.mp4',still:'intro/still_vert.jpg',
+          TX:1.78,MO:[3.25,3.62],OO:[3.50,4.02]}
+  };
+  var running=false;
+  var cl=function(v,a,b){return v<a?a:(v>b?b:v)}, sg=function(t,a,b){return cl((t-a)/(b-a),0,1)};
+  var eo3=function(p){return 1-Math.pow(1-p,3)};
+
+  function run(){
+    if(running) return; running=true;
+    var root0=document.documentElement, revealed=false; root0.classList.add('intro-on');
+    function reveal(){ if(revealed) return; revealed=true; root0.classList.remove('intro-on'); }
+    var vert=innerHeight>innerWidth, c=vert?CFG.vert:CFG.desk;
+    var ov=document.createElement('div'); ov.id='intro'; if(vert) ov.className='vert';
+    ov.innerHTML=(RM?'<img class="still" alt="" src="'+c.still+'">':
+      '<video muted playsinline preload="auto" disableremoteplayback>'+
+      '<source src="'+c.webm+'" type="video/webm"><source src="'+c.mp4+'" type="video/mp4"></video>')+
+      '<div id="im"><div id="imw">STRAND</div><div id="ims">ENTERPRISES</div></div><div id="skip">CLICK TO SKIP</div>';
+    document.body.appendChild(ov);
+    var root=document.documentElement, prev=root.style.overflow; root.style.overflow='hidden';
+    var w=ov.querySelector('#imw'), s=ov.querySelector('#ims'), sk=ov.querySelector('#skip');
+    var v=ov.querySelector('video'), raf=0, done=false, fading=false;
+
+    function cleanup(){ if(done) return; done=true; reveal(); cancelAnimationFrame(raf);
+      if(v){ try{v.pause();}catch(e){} } if(ov.parentNode) ov.parentNode.removeChild(ov);
+      root.style.overflow=prev; running=false; }
+    function bail(ms){ if(fading||done) return; fading=true; reveal();
+      ov.style.transition='opacity '+(ms||260)+'ms cubic-bezier(.4,0,.6,1)'; ov.style.opacity='0';
+      setTimeout(cleanup,(ms||260)+40); }
+
+    function mark(t){
+      var a=eo3(sg(t,c.TX-0.04,c.TX+0.24)), out=1-sg(t,c.MO[0],c.MO[1]);
+      var sc=1+0.14*Math.pow(1-sg(t,c.TX,c.TX+0.36),3);
+      var D=vert?Math.max(innerWidth,innerHeight*0.5625):Math.max(innerHeight,innerWidth*0.5625);
+      var hk=(0.62*(1-sg(t,c.TX+0.30,c.TX+0.80))+0.18).toFixed(2);
+      var cp=1-sg(t,c.TX,c.TX+0.22), dx=(11*cp*cp*(D/1080)).toFixed(2);
+      var f='drop-shadow(0 0 '+(D*0.028).toFixed(1)+'px rgba(10,6,2,'+hk+'))';
+      if(cp>0.01) f+=' drop-shadow('+(-dx)+'px 0 0 rgba(255,60,40,'+(0.55*cp).toFixed(2)+')) drop-shadow('+dx+'px 0 0 rgba(40,200,255,'+(0.55*cp).toFixed(2)+'))';
+      w.style.filter=f;
+      w.style.opacity=(a*out).toFixed(3);
+      w.style.transform='scale('+sc.toFixed(4)+')';
+      w.style.letterSpacing=(0.06+0.12*(1-a)).toFixed(4)+'em';
+      w.style.backgroundPosition=(100-100*sg(t,c.TX+0.40,c.TX+1.15)).toFixed(2)+'% 0';
+      var b=eo3(sg(t,c.TX+0.55,c.TX+1.15));
+      s.style.opacity=(b*out).toFixed(3);
+      s.style.letterSpacing=(0.62+0.28*(1-b)).toFixed(3)+'em';
+      sk.style.opacity=(t>0.5&&t<c.TX)?1:0;
+    }
+
+    if(RM){
+      /* reduced motion: a still of the ring and the name, no movement */
+      var t0=performance.now();
+      (function rm(now){ var t=(now-t0)/1000;
+        var a=sg(t,0,0.45)*(1-sg(t,1.35,1.75));
+        w.style.opacity=a.toFixed(3); s.style.opacity=a.toFixed(3);
+        w.style.backgroundPosition='0% 0';
+        ov.style.opacity=(1-sg(t,1.55,1.95)).toFixed(3); if(t>=1.6) reveal();
+        if(t>=1.95){ cleanup(); return; } raf=requestAnimationFrame(rm); })(t0);
+    } else {
+      var started=false;
+      var guard=setTimeout(function(){ if(!started) bail(220); },2200);
+      v.addEventListener('playing',function(){
+        if(started) return; started=true; clearTimeout(guard);
+        (function loop(){ if(done) return;
+          var t=v.currentTime; mark(t);
+          /* exit: fly through the ring into the gold dust behind it */
+          v.style.transform='scale('+(1+0.34*Math.pow(sg(t,c.OO[0]-0.28,c.OO[1]),2)).toFixed(4)+')';
+          if(t>=c.OO[0]+0.1) reveal();
+          if(!fading) ov.style.opacity=(1-sg(t,c.OO[0],c.OO[1])).toFixed(3);
+          if(t>=c.OO[1]||v.ended){ cleanup(); return; }
+          raf=requestAnimationFrame(loop); })();
+      });
+      v.addEventListener('error',function(){ bail(220); },true);
+      var p=v.play(); if(p&&p.catch) p.catch(function(){ bail(220); });
+    }
+    ov.addEventListener('click',function(){ bail(320); });
+    addEventListener('keydown',function(){ bail(320); },{once:true});
+  }
+
+  run();
+  document.addEventListener('DOMContentLoaded',function(){
+    var wm=document.querySelector('.nav .wordmark');
+    if(wm) wm.addEventListener('click',function(e){ e.preventDefault(); scrollTo(0,0); run(); });
+  });
+  window.__strand=run;
+})();
+</script>
+<div id="thread"><span></span></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="wordmark" aria-label="Strand Enterprises — replay the intro">STRAND</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="btn" href="#start">Free preview</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO: the film lets go into gold dust -->
+  <section class="hero" id="hero">
+    <div class="hero-media" aria-hidden="true">
+      <video muted loop playsinline preload="auto" poster="intro/amb_hero.jpg" disableremoteplayback>
+        <source src="intro/amb_hero.webm" type="video/webm">
+        <source src="intro/amb_hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="hero-in container">
+      <p class="hero-eye">Websites for Salt Lake City businesses</p>
+      <h1 class="hero-h"><span class="ln">Built to be</span><span class="ln gold">found.</span></h1>
+      <p class="hero-lede">Your customers are already searching. We build the site that makes them choose you&nbsp;&mdash; designed from scratch, live in about a week.</p>
+      <div class="hero-actions">
+        <a class="btn btn--lg" href="#start">Get a free preview</a>
+        <a class="btn btn--lg btn--glass" href="#work">See the work</a>
+      </div>
+    </div>
+    <ul class="hero-proof">
+      <li><b>Free preview</b><span>before you pay anything</span></li>
+      <li><b>About a week</b><span>from message to live</span></li>
+      <li><b class="nums">$600&ndash;1,200</b><span>one fixed price</span></li>
+    </ul>
+  </section>
+
+  <!-- 2. THE PROBLEM, lit word by word -->
+  <section class="why" id="why">
+    <div class="why-stick">
+      <div class="container">
+        <p class="eyebrow">The first impression</p>
+        <p class="why-text" id="whyText">People form an opinion of a website in <em>about fifty milliseconds.</em> Before they read a word. Before they see your reviews. If your site looks out of date, they assume your business is too&nbsp;&mdash; and they go to whoever looks better.</p>
+        <p class="why-src" id="whySrc">Lindgaard et al., &ldquo;Attention web designers: You have 50 milliseconds to make a good first impression!&rdquo; Behaviour &amp; Information Technology, 2006.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PROOF: same restaurant, different decade -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="ba-head">
+        <div>
+          <p class="eyebrow">Same restaurant. Different decade.</p>
+          <h2 class="display-2">Drag the line.</h2>
+        </div>
+        <p class="lede">Same food, same address, same reviews. One of these gets the reservation.</p>
+      </div>
+      <figure class="ba-frame">
+        <div class="chrome"><i></i><i></i><i></i><b>tavola.com</b></div>
+        <div class="ba-stage" id="baStage">
+          <img src="img/tavola.jpg" alt="Tavola, rebuilt by Strand: full-bleed photography and a Reserve button" width="1400" height="875" loading="lazy">
+          <div class="ba-before"><img src="img/before_tavola.jpg" alt="A typical dated restaurant website: cramped text, a PDF menu, call for reservations" width="1400" height="875" loading="lazy"></div>
+          <span class="ba-tag l" id="tagL">Before</span>
+          <span class="ba-tag r" id="tagR">Strand</span>
+          <div class="ba-handle" id="baHandle" role="slider" tabindex="0" aria-label="Compare the old site with the Strand build" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="ba-knob"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#F5F3EF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6 3 11l5 5M14 6l5 5-5 5"/></svg></span>
+          </div>
+        </div>
+      </figure>
+      <div class="ba-notes">
+        <div><h3>The menu</h3><s>A PDF you have to download</s><p>Right on the page, readable on a phone.</p></div>
+        <div><h3>Reservations</h3><s>&ldquo;Please call us&rdquo;</s><p>A Reserve button on every screen.</p></div>
+        <div><h3>First impression</h3><s>Looks like 2012</s><p>Looks like the food tastes.</p></div>
+      </div>
+      <p class="legal ba-legal">Tavola is a concept business. The &ldquo;before&rdquo; is an illustration of a typical dated site, not a real restaurant.</p>
+    </div>
+  </section>
+
+  <!-- 4. THE WORK, alive on real devices -->
+  <div class="show-head container" id="work">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="display-2">Five builds. No templates.</h2>
+    <p class="lede">Concept builds for businesses that don&rsquo;t exist yet. Each one is a complete, working site, written from scratch. Scroll to flip through them.</p>
+  </div>
+  <section class="show" id="show" aria-label="Portfolio">
+    <div class="show-stick">
+      <div class="show-glow" aria-hidden="true">
+        <i style="--c:#6b4bd8" class="on"></i><i style="--c:#c8261e"></i><i style="--c:#c9a24a"></i><i style="--c:#b5532f"></i><i style="--c:#c6aa83"></i>
+      </div>
+      <div class="container show-grid">
+        <div class="show-copy">
+          <div class="show-items">
+            <article class="si on">
+              <p class="si-n nums">01 / 05</p><h3>Nebula</h3><p class="si-k">Supplement storefront</p>
+              <p class="si-b">A product launch built like a drop: a live stock counter, flavor picker and subscribe-and-save, all one thumb away.</p>
+              <a class="si-a" href="portfolio-sites/ECLIPSEindex.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="si">
+              <p class="si-n nums">02 / 05</p><h3>Forge</h3><p class="si-k">Gym</p>
+              <p class="si-b">Cinematic video from the first second, membership plans laid out plainly, and Join never more than a tap away.</p>
+              <a class="si-a" href="portfolio-sites/forge/index.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="si">
+              <p class="si-n nums">03 / 05</p><h3>Tavola</h3><p class="si-k">Restaurant</p>
+              <p class="si-b">Reserve in the header, tonight&rsquo;s menu right on the page, and photography that does the convincing.</p>
+              <a class="si-a" href="portfolio-sites/restaurant.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="si">
+              <p class="si-n nums">04 / 05</p><h3>Cuts by Roman</h3><p class="si-k">Barbershop</p>
+              <p class="si-b">Book Now in the corner of every screen. Services and prices up front, so nobody has to call to ask.</p>
+              <a class="si-a" href="portfolio-sites/barbershop.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
+            </article>
+            <article class="si">
+              <p class="si-n nums">05 / 05</p><h3>VLTG</h3><p class="si-k">Clothing storefront</p>
+              <p class="si-b">A streetwear drop with a working cart, sizes and low-stock labels that make people decide now.</p>
+              <a class="si-a" href="portfolio-sites/merch-store.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
+            </article>
+          </div>
+          <div class="dots" role="group" aria-label="Choose a build">
+            <button class="on" aria-label="Nebula"></button><button aria-label="Forge"></button><button aria-label="Tavola"></button><button aria-label="Cuts by Roman"></button><button aria-label="VLTG"></button>
+          </div>
+        </div>
+        <div class="devices" id="devices" aria-hidden="true">
+          <div class="laptop">
+            <div class="lt-screen"><div class="lt-glass">
+              <img class="on" src="img/nebula.jpg" alt="" width="2000" height="1250">
+              <img src="img/forge.jpg" alt="" width="1400" height="875" loading="lazy">
+              <img src="img/tavola.jpg" alt="" width="1400" height="875" loading="lazy">
+              <img src="img/roman.jpg" alt="" width="1400" height="875" loading="lazy">
+              <img src="img/vltg.jpg" alt="" width="1400" height="875" loading="lazy">
+            </div></div>
+            <div class="lt-base"></div>
+          </div>
+          <div class="phone">
+            <i class="ph-island"></i>
+            <div class="ph-screen">
+              <img class="on" src="img/phone/nebula.jpg" alt="" width="860" height="7200">
+              <img src="img/phone/forge.jpg" alt="" width="860" height="7200" loading="lazy">
+              <img src="img/phone/tavola.jpg" alt="" width="860" height="7200" loading="lazy">
+              <img src="img/phone/roman.jpg" alt="" width="860" height="7117" loading="lazy">
+              <img src="img/phone/vltg.jpg" alt="" width="860" height="7200" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHAT YOU'RE BUYING -->
+  <section class="section alt" id="what">
+    <div class="container">
+      <p class="eyebrow">What you&rsquo;re buying</p>
+      <h2 class="display-2">Not a website.<br>A front door.</h2>
+      <p class="lede">The page people find at eleven at night, deciding where to go tomorrow. Every build is made to turn that visit into a call, a booking, or a walk-in.</p>
+      <div class="bento">
+        <div class="tile t1">
+          <h3>One tap to call or book.</h3>
+          <p>The button they came for is on every screen. No hunting, no dead ends, no &ldquo;call for details.&rdquo;</p>
+          <div class="tv" aria-hidden="true">
+            <div class="mini-ph"><span class="ln" style="width:72%"></span><span class="ln" style="width:48%"></span>
+              <span class="mbtn">Book a chair<b class="rip"></b></span><i class="tapdot"></i></div>
+          </div>
+        </div>
+        <div class="tile t2" data-fx="search">
+          <h3>Found when they search.</h3>
+          <p>Titles, descriptions and map links set up on every page, so search engines know what you do and where you are.</p>
+          <div class="tv tv-search" aria-hidden="true">
+            <div class="sbox"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="7" cy="7" r="5"/><path d="m11 11 3.5 3.5" stroke-linecap="round"/></svg><span class="stype"></span><i class="caret"></i></div>
+            <ul class="sres">
+              <li class="hit"><b>Cuts by Roman &middot; Barbershop</b><span>Salt Lake City &middot; Open now &middot; Book online</span></li>
+              <li><i></i><i></i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tile t3">
+          <h3>Right on every screen.</h3>
+          <p>Designed for the phone first, because that&rsquo;s where most customers will meet you.</p>
+          <div class="tv" aria-hidden="true"><div class="rframe"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <div class="tile t4">
+          <h3>Fast.</h3>
+          <p>Hand-written code with no page-builder bloat. It opens before they lose interest.</p>
+          <div class="tv tv-fast" aria-hidden="true">
+            <div class="ring"><svg viewBox="0 0 132 132"><circle class="tr" cx="66" cy="66" r="58"/><circle class="fl" cx="66" cy="66" r="58"/></svg>
+              <span class="ck"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#C9A96E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m10 21 7 7 14-15"/></svg></span></div>
+          </div>
+        </div>
+        <div class="tile t5">
+          <h3>Yours. Every file.</h3>
+          <p>Your domain, your files, your accounts. No lock-in, ever.</p>
+          <ul class="tv tv-own" aria-hidden="true">
+            <li>yourbusiness.com<em>Yours</em></li>
+            <li>index.html<em>Yours</em></li>
+            <li>/photos<em>Yours</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ONE WEEK, on the thread -->
+  <section class="section" id="process">
+    <div class="container proc-grid">
+      <div class="proc-head">
+        <p class="eyebrow">How it works</p>
+        <h2 class="display-2">One message to live in about a week.</h2>
+        <p class="lede">No discovery calls. No questionnaires. No decks.</p>
+      </div>
+      <div class="tl" id="tl">
+        <span class="tl-track" aria-hidden="true"><span class="tl-fill" id="tlFill"></span></span>
+        <ol>
+        <li class="tl-step"><i class="tl-dot" aria-hidden="true"></i><p class="tl-day">Day 0</p><h3>You send one message.</h3><p>Your business name and what you want the site to do. That&rsquo;s the whole brief.</p></li>
+        <li class="tl-step"><i class="tl-dot" aria-hidden="true"></i><p class="tl-day">Day 2</p><h3>You get a real preview. Free.</h3><p>Not a mockup or a mood board. A working page you can open on your phone. Don&rsquo;t love it? You owe nothing.</p></li>
+        <li class="tl-step"><i class="tl-dot" aria-hidden="true"></i><p class="tl-day">Days 3&ndash;6</p><h3>We make it yours.</h3><p>Your photos, your words, your hours. Changes come back in hours, not weeks.</p></li>
+        <li class="tl-step"><i class="tl-dot" aria-hidden="true"></i><p class="tl-day">Day 7</p><h3>It goes live.</h3><p>On your domain, set up for search, and you own every file behind it.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ONE PRICE -->
+  <section class="section alt" id="pricing">
+    <div class="container price-grid">
+      <div>
+        <p class="eyebrow">Pricing</p>
+        <h2 class="display-2">One number. Up&nbsp;front.</h2>
+        <p class="price-big nums">$600 &ndash; $1,200</p>
+        <p class="price-note">Depending on how many pages and how much is custom. You get the number before anything starts, and it doesn&rsquo;t move. The preview is free. If you want it, half to start and half the day it goes live.</p>
+      </div>
+      <div class="price-card" id="priceCard">
+        <h3>Every build includes</h3>
+        <ul class="inc">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>A custom design, written from scratch</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Built for phones first, right on every screen</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>A call, book or order button on every page</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Search basics: titles, descriptions, map links</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Set up on your own domain. You own all of it.</li>
+        </ul>
+        <a class="btn btn--lg" href="#start">Get a free preview</a>
+        <p class="legal">No payment until you&rsquo;ve seen it and said yes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CLOSE: the threads converge -->
+  <section class="close" id="start">
+    <div class="close-media" aria-hidden="true">
+      <video muted loop playsinline preload="none" poster="intro/amb_close.jpg" disableremoteplayback>
+        <source src="intro/amb_close.webm" type="video/webm">
+        <source src="intro/amb_close.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="close-shade"></div>
+    <div class="container">
+      <p class="eyebrow">Free preview</p>
+      <h2>See yours before you pay a&nbsp;cent.</h2>
+      <p class="lede">Send your business name. We&rsquo;ll build a working preview and send you the link, usually within 48&nbsp;hours. If it isn&rsquo;t better than what you have, walk away.</p>
+      <form class="lead" id="lead" action="https://formspree.io/f/mkoaovye" method="POST">
+        <input type="hidden" name="_subject" value="Strand: free preview request">
+        <label class="gotcha" aria-hidden="true">Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <div class="lead-row">
+          <label class="fld"><span>Business name</span><input name="business" required autocomplete="organization" placeholder="e.g. Tavola"></label>
+          <label class="fld"><span>Phone or email</span><input name="contact" required autocomplete="email" placeholder="Where we send the link"></label>
+        </div>
+        <label class="fld"><span>What should the site do? <em>Optional</em></span><input name="goal" placeholder="More bookings, more calls, look legit&hellip;"></label>
+        <button class="btn btn--lg" type="submit">Get my free preview</button>
+        <p class="lead-msg" role="status" aria-live="polite"></p>
+      </form>
+      <p class="legal">Rather text? <a href="sms:+18017839580">(801) 783-9580</a>. No payment until you&rsquo;ve seen it and said yes.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot-row">
+      <span class="wordmark">STRAND</span>
+      <span class="cap">Salt Lake City, Utah</span>
+      <a href="sms:+18017839580">Text (801) 783-9580</a>
+    </div>
+    <p class="legal">Portfolio pieces are concept builds for fictional businesses, made to show the standard of the work. &copy; 2026 Strand Enterprises.</p>
+  </div>
+</footer>
+
+<a class="btn btn--lg mcta" id="mcta" href="#start">Get a free preview</a>
+<script>
+(function(){
+  var d=document, root=d.documentElement; root.classList.add('js');
+  var RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var cl=function(v,a,b){return v<a?a:(v>b?b:v)};
+  var ss=function(x){x=cl(x,0,1);return x*x*(3-2*x)};
+  var $=function(s){return d.querySelector(s)}, $$=function(s){return Array.prototype.slice.call(d.querySelectorAll(s))};
+  var vh=innerHeight;
+
+  /* ---- ambient video: play only on screen, never with Reduce Motion ---- */
+  function bg(v){
+    if(!v||RM||!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if(e.isIntersecting){ if(v.preload==='none') v.preload='auto'; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+      else v.pause(); }); },{rootMargin:'150px'}).observe(v);
+  }
+  bg($('.hero-media video')); bg($('.close-media video'));
+
+  /* ---- 50ms: split into words so they can light up ---- */
+  var words=[], wt=$('#whyText'), wsrc=$('#whySrc');
+  if(wt){ (function walk(node,gold){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){ var f=d.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(part){ if(!part) return;
+          if(/^\s+$/.test(part)){ f.appendChild(d.createTextNode(part)); return; }
+          var sp=d.createElement('span'); sp.className='w'+(gold?' g':''); sp.textContent=part; f.appendChild(sp); words.push(sp); });
+        node.replaceChild(f,n);
+      } else if(n.nodeType===1){ walk(n, gold||n.tagName==='EM'); }
+    }); })(wt,false); }
+
+  /* ---- before / after ---- */
+  var ba=$('#baStage'), bh=$('#baHandle'), tagL=$('#tagL'), tagR=$('#tagR'), touched=false, bx=50;
+  function setBA(x){ bx=cl(x,0,100); ba.style.setProperty('--x',bx.toFixed(2)+'%'); bh.setAttribute('aria-valuenow',Math.round(bx));
+    tagL.style.opacity=bx<20?0:1; tagR.style.opacity=bx>80?0:1; }
+  if(ba){
+    var drag=false;
+    var fromEvt=function(e){ var r=ba.getBoundingClientRect(); return (e.clientX-r.left)/r.width*100; };
+    ba.addEventListener('pointerdown',function(e){ drag=true; touched=true; try{ba.setPointerCapture(e.pointerId);}catch(_){}
+      if(e.pointerType==='mouse') setBA(fromEvt(e)); });
+    ba.addEventListener('pointermove',function(e){ if(drag) setBA(fromEvt(e)); });
+    ['pointerup','pointercancel','lostpointercapture'].forEach(function(t){ ba.addEventListener(t,function(){ drag=false; }); });
+    bh.addEventListener('keydown',function(e){ var k=e.key, x=bx;
+      if(k==='ArrowLeft'||k==='ArrowDown') x-=5; else if(k==='ArrowRight'||k==='ArrowUp') x+=5;
+      else if(k==='Home') x=0; else if(k==='End') x=100; else return;
+      e.preventDefault(); touched=true; setBA(x); });
+    /* one quiet demonstration the first time it's seen */
+    if(!RM && 'IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ if(!es[0].isIntersecting) return; io.disconnect();
+        var K=[[0,50],[700,24],[1550,76],[2250,50]], t0=performance.now();
+        (function f(now){ if(touched) return; var t=now-t0;
+          if(t>=K[K.length-1][0]){ setBA(50); return; }
+          for(var i=0;i<K.length-1;i++){ if(t<=K[i+1][0]){ var a=K[i],b=K[i+1]; setBA(a[1]+(b[1]-a[1])*ss((t-a[0])/(b[0]-a[0]))); break; } }
+          requestAnimationFrame(f); })(t0);
+      },{threshold:.65});
+      setTimeout(function(){ io.observe(ba); },300);
+    }
+  }
+
+  /* ---- the work ---- */
+  var show=$('#show'), items=$$('.si'), lts=$$('.lt-glass img'), phs=$$('.ph-screen img'),
+      glows=$$('.show-glow i'), dots=$$('.dots button'), devs=$('#devices'), N=items.length, cur=0;
+  function setActive(i){ if(i===cur) return; cur=i;
+    [items,lts,phs,glows,dots].forEach(function(arr){ arr.forEach(function(el,j){ el.classList.toggle('on',j===i); }); }); }
+  dots.forEach(function(b,i){ b.addEventListener('click',function(){
+    var top=show.getBoundingClientRect().top+scrollY, span=show.offsetHeight-vh;
+    scrollTo({top:Math.round(top+span*(i+0.06)/N),behavior:RM?'auto':'smooth'}); }); });
+
+  /* ---- bento ---- */
+  function typeSearch(tile){ if(tile._t) return; tile._t=true;
+    var el=tile.querySelector('.stype'), txt='barber near me', i=0;
+    if(RM){ el.textContent=txt; tile.classList.add('done'); return; }
+    (function step(){ el.textContent=txt.slice(0,++i);
+      if(i<txt.length) setTimeout(step,60+Math.random()*70); else setTimeout(function(){ tile.classList.add('done'); },260); })(); }
+  var tiles=$$('.tile');
+  if('IntersectionObserver' in window){
+    var tio=new IntersectionObserver(function(es){ es.forEach(function(e){
+      e.target.classList.toggle('on',e.isIntersecting);
+      if(e.isIntersecting){ e.target.classList.add('seen'); if(e.target.getAttribute('data-fx')==='search') typeSearch(e.target); } }); },{threshold:.4});
+    tiles.forEach(function(t){ tio.observe(t); });
+  } else tiles.forEach(function(t){ t.classList.add('on','seen'); if(t.getAttribute('data-fx')==='search') typeSearch(t); });
+
+  /* ---- the lead form: stays on the page, no mail app ---- */
+  var lead=$('#lead');
+  if(lead&&window.fetch&&window.FormData) lead.addEventListener('submit',function(e){
+    e.preventDefault(); var msg=lead.querySelector('.lead-msg'), btn=lead.querySelector('button');
+    btn.disabled=true; btn.textContent='Sending\u2026'; msg.textContent='';
+    fetch(lead.action,{method:'POST',body:new FormData(lead),headers:{Accept:'application/json'}})
+      .then(function(r){ if(!r.ok) throw new Error(r.status);
+        lead.classList.add('sent'); msg.textContent='Got it. Your preview is on the way, usually within 48 hours.'; })
+      .catch(function(){ btn.disabled=false; btn.textContent='Get my free preview';
+        msg.innerHTML='That didn\u2019t go through. Text <a href="sms:+18017839580" style="color:#F5F3EF">(801) 783-9580</a> instead.'; });
+  });
+
+  /* ---- one scroll loop for everything that follows the scroll ---- */
+  var nav=$('#nav'), thread=$('#thread'), tfill=$('#thread span'), heroIn=$('.hero-in'), heroM=$('.hero-media'),
+      tl=$('#tl'), tlFill=$('#tlFill'), steps=$$('.tl-step'), why=$('#why'), close=$('#start'), mcta=$('#mcta'), pcard=$('#priceCard');
+  var ticking=false;
+  function req(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  function update(){ ticking=false;
+    var y=scrollY, H=root.scrollHeight-vh;
+    nav.classList.toggle('solid',y>24);
+
+    /* hero drifts back as you leave it */
+    if(!RM && y<vh*1.3){
+      heroIn.style.transform='translate3d(0,'+(y*0.3).toFixed(1)+'px,0)';
+      heroIn.style.opacity=(1-cl(y/(vh*0.72),0,1)).toFixed(3);
+      heroM.style.transform='scale('+(1+cl(y/vh,0,1.3)*0.12).toFixed(4)+')';
+    }
+
+    /* the thread */
+    var cr=close.getBoundingClientRect();
+    if(thread){ thread.style.opacity=(y>vh*0.7&&cr.top>vh*0.4)?1:0;
+      if(!RM) tfill.style.transform='scaleY('+(H>0?cl(y/H,0,1):0).toFixed(4)+')'; }
+
+    /* 50ms */
+    if(why&&words.length){ var r=why.getBoundingClientRect(), span=r.height-vh;
+      var p=cl((-r.top+vh*0.18)/(span*0.86),0,1), n=words.length;
+      for(var i=0;i<n;i++){ words[i].style.opacity=(0.14+0.86*cl(p*n*1.04-i,0,1)).toFixed(3); }
+      wsrc.classList.toggle('on',p>0.97); }
+
+    /* the work */
+    if(show){ var sr=show.getBoundingClientRect(), sspan=sr.height-vh;
+      var sp=cl(-sr.top/sspan,0,0.99999), fi=sp*N, idx=Math.floor(fi), lp=fi-idx;
+      setActive(idx);
+      var ph=phs[idx];
+      if(ph&&ph.offsetHeight){ var scr=ph.parentNode.clientHeight, travel=ph.offsetHeight-scr;
+        var k=RM?0:ss((lp-0.12)/0.8);
+        ph.style.transform='translate3d(0,'+(-travel*k).toFixed(1)+'px,0)'; }
+      dots.forEach(function(b,j){ b.style.setProperty('--p',j<idx?1:(j===idx?lp.toFixed(3):0)); });
+      if(devs&&!RM){ var q=1-ss(cl(1-sr.top/vh,0,1));
+        devs.style.setProperty('--tilt',(24*q).toFixed(2)+'deg');
+        devs.style.setProperty('--ls',(1-0.07*q).toFixed(4));
+        devs.style.setProperty('--rise',(70*q).toFixed(1)+'px'); }
+    }
+
+    /* the timeline fills as you read it */
+    if(tl){ var tr=tl.getBoundingClientRect(), line=vh*0.6;
+      tlFill.style.transform='scaleY('+cl((line-tr.top)/tr.height,0,1).toFixed(4)+')';
+      steps.forEach(function(s){ s.classList.toggle('lit',s.getBoundingClientRect().top+14<line); }); }
+
+    /* phone: a way to say yes is always one tap away */
+    if(mcta){ var pr=pcard.getBoundingClientRect(), sr2=show.getBoundingClientRect();
+      var pinned=sr2.top<vh*0.35&&sr2.bottom>vh*0.65;
+      mcta.classList.toggle('on', y>vh*0.85 && !pinned && !(pr.top<vh&&pr.bottom>0) && cr.top>vh*0.7); }
+  }
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',function(){ vh=innerHeight; req(); });
+  addEventListener('load',req);
+  phs.forEach(function(im){ im.addEventListener('load',req); });
+  update();
+})();
+</script>
+</body>
+</html>

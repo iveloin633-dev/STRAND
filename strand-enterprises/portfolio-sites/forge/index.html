@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+  :root{--black:#070707;--red:#e0231f;--red-bright:#ff3b35;--white:#f4f2f0;--smoke:#8a8a8c;--line:rgba(224,35,31,.3)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .scroller{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  .scroller::-webkit-scrollbar{width:0}
+  .snap{scroll-snap-align:start;scroll-snap-stop:always}
+  .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--red-bright));z-index:200;width:0;box-shadow:0 0 12px var(--red)}
+  nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 44px;mix-blend-mode:difference}
+  .logo{font-family:'Oswald',sans-serif;font-size:26px;letter-spacing:8px;font-weight:700}
+  .nav-links{display:flex;gap:38px;list-style:none}
+  .nav-links a{color:var(--white);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:opacity .3s}
+  .nav-links a:hover{opacity:.5}
+  .vsec{position:relative;height:100vh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .vsec video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+  .vgrad{position:absolute;inset:0;z-index:1}
+  .hero-grad{background:linear-gradient(180deg,rgba(7,7,7,.5) 0%,rgba(7,7,7,.2) 35%,rgba(7,7,7,.3) 55%,rgba(7,7,7,.85) 100%)}
+  .panel-grad{background:radial-gradient(ellipse at center,rgba(7,7,7,.25) 25%,rgba(7,7,7,.72) 100%)}
+  .vcontent{position:relative;z-index:2;text-align:center;padding:0 24px}
+  .hero-mark h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(80px,18vw,260px);line-height:.82;letter-spacing:6px;text-shadow:0 20px 80px rgba(0,0,0,.9)}
+  .hero-mark h1 .stroke{-webkit-text-stroke:2px var(--white);color:transparent}
+  .hero-mark .tagline{margin-top:14px;font-family:'Oswald',sans-serif;font-size:clamp(14px,2vw,22px);letter-spacing:10px;text-transform:uppercase;color:var(--red-bright);font-weight:500}
+  .kicker{font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--red-bright);margin-bottom:18px;font-weight:600}
+  .vcontent h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(48px,10vw,128px);line-height:.92;letter-spacing:2px;text-transform:uppercase;text-shadow:0 12px 50px rgba(0,0,0,.95)}
+  .vcontent h2 em{font-style:normal;color:var(--red)}
+  .corner{position:absolute;z-index:3;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--smoke);font-weight:500}
+  .corner.bl{bottom:36px;left:44px}.corner.br{bottom:36px;right:44px}
+  .scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--smoke)}
+  .scroll-cue .bar{width:2px;height:46px;background:linear-gradient(var(--red),transparent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+  .grid-sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 44px;max-width:1300px;margin:0 auto}
+  .grid-head{text-align:center;margin-bottom:60px}
+  .grid-head .kicker{display:block;margin-bottom:16px}
+  .grid-head h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(40px,7vw,84px);letter-spacing:2px;text-transform:uppercase}
+  .tilt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .tilt-card{position:relative;height:440px;overflow:hidden;transform-style:preserve-3d;transition:transform .15s ease-out;box-shadow:0 30px 80px rgba(0,0,0,.7);cursor:pointer;border:1px solid rgba(224,35,31,.15)}
+  .tilt-card video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+  .tc-grad{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 35%,rgba(7,7,7,.95) 100%);transition:opacity .4s}
+  .tilt-card:hover .tc-grad{opacity:.7}
+  .tc-label{position:absolute;z-index:2;bottom:0;left:0;padding:30px;transform:translateZ(40px)}
+  .tc-label .n{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:4px;color:var(--red-bright);text-transform:uppercase;font-weight:600}
+  .tc-label h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:32px;letter-spacing:1px;margin-top:8px;text-transform:uppercase}
+  .price-sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 44px;max-width:1250px;margin:0 auto}
+  .price-head{text-align:center;margin-bottom:60px}
+  .price-head .kicker{display:block;margin-bottom:16px}
+  .price-head h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(40px,7vw,84px);letter-spacing:2px;text-transform:uppercase}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .tier{background:linear-gradient(160deg,#0e0e0e,#080808);border:1px solid rgba(255,255,255,.08);padding:48px 34px;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .5s;transform-style:preserve-3d}
+  .tier:hover{transform:translateY(-14px) rotateX(4deg);box-shadow:0 40px 90px rgba(224,35,31,.2);border-color:var(--red)}
+  .tier .t-name{font-family:'Oswald',sans-serif;font-size:30px;letter-spacing:2px;margin-bottom:6px;text-transform:uppercase;font-weight:600}
+  .tier .t-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red-bright);margin-bottom:28px;font-weight:500}
+  .tier .t-price{font-family:'Oswald',sans-serif;font-size:54px;font-weight:700;margin-bottom:6px}
+  .tier .t-price span{font-size:15px;color:var(--smoke);font-weight:300}
+  .tier .t-per{font-size:12px;color:var(--smoke);letter-spacing:1px;text-transform:uppercase;margin-bottom:28px}
+  .tier ul{list-style:none}
+  .tier ul li{font-size:14px;color:var(--smoke);padding:13px 0;border-top:1px solid rgba(255,255,255,.07);letter-spacing:.3px}
+  .tier.feature{border-color:var(--red);background:linear-gradient(160deg,#1a0a09,#0a0606)}
+  .tier.feature .t-name{color:var(--red-bright)}
+  .cta{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}
+  .cta video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover;z-index:0;opacity:.4}
+  .cta-grad{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(7,7,7,.55),var(--black)),linear-gradient(180deg,transparent,rgba(224,35,31,.08))}
+  .cta-inner{position:relative;z-index:2;width:100%;max-width:520px;padding:0 24px}
+  .cta-inner .kicker{display:block;margin-bottom:20px}
+  .cta-inner h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,10vw,130px);letter-spacing:3px;line-height:.9;margin-bottom:14px;text-transform:uppercase}
+  .cta-inner p{color:var(--smoke);font-size:15px;letter-spacing:1px;margin-bottom:36px}
+  .signup{display:flex;flex-direction:column;gap:12px}
+  .signup input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.15);color:var(--white);padding:18px 22px;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.5px;outline:none;transition:border-color .3s}
+  .signup input::placeholder{color:var(--smoke)}
+  .signup input:focus{border-color:var(--red)}
+  .signup button{background:var(--red);color:var(--white);border:none;padding:19px;font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:4px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s}
+  .signup button:hover{background:var(--red-bright);box-shadow:0 0 40px rgba(224,35,31,.5)}
+  footer{padding:50px 44px;border-top:1px solid rgba(224,35,31,.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;background:var(--black)}
+  footer .logo{font-size:20px;letter-spacing:6px}
+  footer .f-info{font-size:11px;letter-spacing:2px;color:var(--smoke);text-transform:uppercase}
+  .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  .hero-mark h1{opacity:0;animation:heroTitle 1.4s cubic-bezier(.2,.8,.2,1) .3s forwards}
+  .hero-mark .tagline{opacity:0;animation:heroTag 1s cubic-bezier(.2,.8,.2,1) 1.2s forwards}
+  .intro-fade{position:absolute;inset:0;z-index:4;background:var(--black);animation:introFade 1.6s ease-out .2s forwards;pointer-events:none}
+  @keyframes heroTitle{0%{opacity:0;transform:translateY(40px) scale(1.1);filter:blur(10px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+  @keyframes heroTag{0%{opacity:0;letter-spacing:20px}100%{opacity:1;letter-spacing:10px}}
+  @keyframes introFade{0%{opacity:1}100%{opacity:0}}
+  @media(max-width:820px){nav{padding:18px 22px}.nav-links{display:none}.logo{font-size:22px;letter-spacing:5px}.tilt-grid{grid-template-columns:1fr}.tiers{grid-template-columns:1fr}.grid-sec,.price-sec{padding-left:22px;padding-right:22px}.corner{display:none}.price-sec,.grid-sec{min-height:auto}}
+  @media(prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.scroll-cue .bar{animation:none}.scroller{scroll-snap-type:none}.hero-mark h1,.hero-mark .tagline{opacity:1;animation:none}.intro-fade{display:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav>
+  <div class="logo">FORGE</div>
+  <ul class="nav-links"><li><a href="#train">Train</a></li><li><a href="#plans">Plans</a></li><li><a href="#join">Join</a></li></ul>
+</nav>
+<div class="scroller" id="scroller">
+
+  <!-- HERO -->
+  <section class="vsec snap">
+    <video autoplay muted loop playsinline><source src="videos/hero.mp4" type="video/mp4"></video>
+    <div class="vgrad hero-grad"></div>
+    <div class="intro-fade"></div>
+    <div class="vcontent hero-mark"><h1>FORGE</h1><div class="tagline">Built, Not Born</div></div>
+    <div class="corner bl">Salt Lake City</div>
+    <div class="corner br">Est. 2026</div>
+    <div class="scroll-cue"><span>Scroll</span><div class="bar"></div></div>
+  </section>
+
+  <!-- PANEL 1 -->
+  <section class="vsec snap" id="train">
+    <video autoplay muted loop playsinline><source src="videos/deadlift.mp4" type="video/mp4"></video>
+    <div class="vgrad panel-grad"></div>
+    <div class="vcontent reveal"><div class="kicker">No Shortcuts</div><h2>Discipline Over <em>Motivation</em></h2></div>
+  </section>
+
+  <!-- PANEL 2 -->
+  <section class="vsec snap">
+    <video autoplay muted loop playsinline><source src="videos/pullup.mp4" type="video/mp4"></video>
+    <div class="vgrad panel-grad"></div>
+    <div class="vcontent reveal"><div class="kicker">Every Rep Counts</div><h2>The Work Is The <em>Reward</em></h2></div>
+  </section>
+
+  <!-- PANEL 3 -->
+  <section class="vsec snap">
+    <video autoplay muted loop playsinline><source src="videos/grit.mp4" type="video/mp4"></video>
+    <div class="vgrad panel-grad"></div>
+    <div class="vcontent reveal"><div class="kicker">No Excuses</div><h2>Become <em>Relentless</em></h2></div>
+  </section>
+
+  <!-- GRID -->
+  <section class="grid-sec snap">
+    <div class="grid-head reveal"><span class="kicker">The Programs</span><h2>Train Your Way</h2></div>
+    <div class="tilt-grid">
+      <div class="tilt-card"><video autoplay muted loop playsinline><source src="videos/sweat.mp4" type="video/mp4"></video><div class="tc-grad"></div><div class="tc-label"><div class="n">01</div><h3>Strength</h3></div></div>
+      <div class="tilt-card"><video autoplay muted loop playsinline><source src="videos/boxer2.mp4" type="video/mp4"></video><div class="tc-grad"></div><div class="tc-label"><div class="n">02</div><h3>Conditioning</h3></div></div>
+      <div class="tilt-card"><video autoplay muted loop playsinline><source src="videos/press.mp4" type="video/mp4"></video><div class="tc-grad"></div><div class="tc-label"><div class="n">03</div><h3>Power</h3></div></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="price-sec snap" id="plans">
+    <div class="price-head reveal"><span class="kicker">Membership</span><h2>Pick Your Battle</h2></div>
+    <div class="tiers reveal">
+      <div class="tier"><div class="t-name">Starter</div><div class="t-tag">Get Moving</div><div class="t-price">$39<span>/mo</span></div><div class="t-per">No commitment</div><ul><li>Full gym access</li><li>Open gym hours</li><li>Locker &amp; showers</li><li>Free intro session</li></ul></div>
+      <div class="tier feature"><div class="t-name">Forged</div><div class="t-tag">Most Popular</div><div class="t-price">$79<span>/mo</span></div><div class="t-per">Best value</div><ul><li>Everything in Starter</li><li>Unlimited classes</li><li>Custom training plan</li><li>Nutrition guidance</li></ul></div>
+      <div class="tier"><div class="t-name">Elite</div><div class="t-tag">All In</div><div class="t-price">$149<span>/mo</span></div><div class="t-per">1-on-1 coaching</div><ul><li>Everything in Forged</li><li>Personal trainer 2x/wk</li><li>Recovery &amp; sauna</li><li>Priority booking</li></ul></div>
+    </div>
+  </section>
+
+  <!-- CTA SIGNUP -->
+  <section class="cta snap" id="join">
+    <video autoplay muted loop playsinline><source src="videos/hero.mp4" type="video/mp4"></video>
+    <div class="cta-grad"></div>
+    <div class="cta-inner">
+      <span class="kicker">Your First Day Starts Now</span>
+      <h2>Start Today</h2>
+      <p>Claim a free 3-day pass. No card required.</p>
+      <div class="signup">
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email Address">
+        <button type="button">Claim Free Pass</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="snap"><div class="logo">FORGE</div><div class="f-info">Salt Lake City · Open 24/7 · @forge.gym</div></footer>
+
+</div>
+<script>
+  const prog=document.getElementById('progress');
+  const scroller=document.getElementById('scroller');
+  scroller.addEventListener('scroll',()=>{const h=scroller.scrollHeight-scroller.clientHeight;prog.style.width=(scroller.scrollTop/h*100)+'%';},{passive:true});
+  document.querySelectorAll('.tilt-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5;const y=(e.clientY-r.top)/r.height-0.5;card.style.transform=`perspective(900px) rotateY(${x*12}deg) rotateX(${-y*12}deg) scale(1.03)`;});
+    card.addEventListener('mouseleave',()=>{card.style.transform='perspective(900px) rotateY(0) rotateX(0) scale(1)'});
+  });
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15,root:scroller});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
