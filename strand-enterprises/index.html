@@ -710,7 +710,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
         <div class="facts">
           <div><b class="nums">0</b><span>templates</span></div>
           <div><b class="nums">0</b><span>page builders</span></div>
-          <div><b class="nums" data-count="1307">1,307</b><span>lines hand-written for this page</span></div>
+          <div><b class="nums" data-count="1339">1,339</b><span>lines hand-written for this page</span></div>
         </div>
       </div>
       <figure class="editor" id="editor">
@@ -1295,7 +1295,11 @@ in vec2 a;void main(){gl_Position=vec4(a,0.,1.);}
   if(lead&&window.fetch&&window.FormData) lead.addEventListener('submit',function(e){
     e.preventDefault(); var msg=lead.querySelector('.lead-msg'), btn=lead.querySelector('button');
     btn.disabled=true; btn.firstChild.textContent='Sending… '; msg.textContent='';
-    fetch(lead.action,{method:'POST',body:new FormData(lead),headers:{Accept:'application/json'}})
+    /* if they left an email, make it the reply-to so the lead can be answered with one tap; put the business in the subject */
+    var fd=new FormData(lead), who=String(fd.get('contact')||'').trim(), biz=String(fd.get('business')||'').trim();
+    if(/\S+@\S+\.\S+/.test(who)) fd.set('email',who);
+    if(biz) fd.set('_subject','Strand: free preview request from '+biz.slice(0,80));
+    fetch(lead.action,{method:'POST',body:fd,headers:{Accept:'application/json'}})
       .then(function(r){ if(!r.ok) throw new Error(r.status); lead.classList.add('sent'); msg.textContent='Got it. Your preview is on the way, usually within 48 hours.'; })
       .catch(function(){ btn.disabled=false; btn.firstChild.textContent='Get my free preview ';
         msg.innerHTML='That didn’t go through. Email <a href="mailto:jeremymford@icloud.com?subject=Free%20preview">jeremymford@icloud.com</a> instead.'; });
