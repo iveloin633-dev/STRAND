@@ -243,6 +243,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
   .show-glow i{background:radial-gradient(60% 40% at 50% 72%,var(--c) 0%,transparent 72%)}
 }
 
+
+/* ---------- the work: four bubbles, one tap each ---------- */
+.work{padding-top:0}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:900px){.grid4{gap:22px}}
+.bub{--c:#D4B072;position:relative;display:block;aspect-ratio:16/10.4;border-radius:30px;overflow:hidden;isolation:isolate;background:#0b0b0d;
+  box-shadow:0 0 0 1px var(--line) inset;transition:transform .55s var(--out),box-shadow .45s var(--ease)}
+.bub picture,.bub img{position:absolute;inset:0;width:100%;height:100%}
+.bub img{object-fit:cover;object-position:top;transition:transform 1.4s var(--out)}
+.bub::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(80% 60% at 50% 110%,var(--c),transparent 70%);opacity:0;mix-blend-mode:screen;transition:opacity .5s var(--ease)}
+.bub::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,6,7,0) 34%,rgba(6,6,7,.72) 64%,rgba(6,6,7,.97) 100%);box-shadow:0 0 0 1px var(--line) inset;border-radius:inherit}
+.bub:hover{transform:translateY(-6px);box-shadow:0 0 0 1px rgba(212,176,114,.55) inset,0 50px 100px -45px var(--c)}
+.bub:hover img{transform:scale(1.05)}
+.bub:hover::before{opacity:.35}
+.bub:active{transform:scale(.985)}
+.bub-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:26px 28px}
+.bub-cap b{display:block;font-family:var(--display);font-size:clamp(26px,2.6vw,42px);font-weight:640;line-height:1;letter-spacing:-.02em;font-variation-settings:"opsz" 144}
+.bub-cap b em{font-style:italic;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bub-cap i{display:block;margin-top:8px;font-style:normal;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.bub-cap>em{flex:none;font-style:normal;font-size:14px;font-weight:600;padding:10px 16px;border-radius:99px;background:rgba(255,255,255,.1);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(255,255,255,.16) inset;transition:background .3s,color .3s,box-shadow .3s}
+.bub:hover .bub-cap>em{background:var(--gold-grad);color:#1A130A;box-shadow:none}
+.bub:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(max-width:639px){
+  .bub{aspect-ratio:9/14;border-radius:22px}
+  .bub-cap{padding:14px 14px 16px}
+  .bub-cap b{font-size:22px}
+  .bub-cap i{font-size:10.5px;letter-spacing:.16em;margin-top:6px}
+  .bub-cap>em{display:none}
+}
+
 /* ---------- fully custom code ---------- */
 .code-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:center}
 @media(min-width:1000px){.code-grid{grid-template-columns:5fr 7fr;gap:72px}}
@@ -579,22 +610,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
     </div>
   </section>
 
-  <!-- 2. FIFTY MILLISECONDS: a split second, in gold -->
-  <section class="why" id="why">
-    <div class="why-stick">
-      <video class="why-vid" id="whyVid" muted playsinline preload="none" poster="img/splash-0.jpg" disableremoteplayback aria-hidden="true">
-        <source src="intro/splash.webm" type="video/webm">
-        <source src="intro/splash.mp4" type="video/mp4">
-      </video>
-      <div class="why-shade"></div>
-      <div class="wrap why-in">
-        <p class="eyebrow">The first impression</p>
-        <p class="why-text" id="whyText">People judge a website in <em>fifty milliseconds.</em> If yours looks outdated, they assume your business is too.</p>
-        <p class="why-src" id="whySrc">Lindgaard et al., &ldquo;Attention web designers: You have 50 milliseconds to make a good first impression!&rdquo; Behaviour &amp; Information Technology, 2006.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- 3. PROOF: same restaurant, different decade -->
   <section class="sec" id="compare">
     <div class="wrap">
@@ -626,65 +641,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
     </div>
   </section>
 
-  <!-- 4. THE WORK -->
-  <div class="show-head wrap" id="work">
-    <p class="eyebrow">Selected work</p>
-    <h2 class="h-lg">Four builds. <em>Zero templates.</em></h2>
-    <p class="lede">Concept builds for businesses that don&rsquo;t exist yet. Each one is a complete, working site, coded from scratch. Scroll to flip through them.</p>
-  </div>
-  <section class="show" id="show" aria-label="Portfolio">
-    <div class="show-stick">
-      <div class="show-glow" aria-hidden="true">
-        <i style="--c:#6b4bd8" class="on"></i><i style="--c:#c8261e"></i><i style="--c:#c9a24a"></i><i style="--c:#b5532f"></i>
-      </div>
-      <div class="wrap show-grid">
-        <div class="show-copy">
-          <div class="show-items">
-            <article class="si on">
-              <p class="si-n nums">01 / 04</p><h3>Nebula</h3><p class="si-k">Supplement storefront</p>
-              <p class="si-b">A product launch built like a drop: a live stock counter, flavor picker and subscribe-and-save, all one thumb away.</p>
-              <a class="si-a" href="portfolio-sites/ECLIPSEindex.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
-            </article>
-            <article class="si">
-              <p class="si-n nums">02 / 04</p><h3>Forge</h3><p class="si-k">Gym</p>
-              <p class="si-b">Cinematic video from the first second, membership plans laid out plainly, and Join never more than a tap away.</p>
-              <a class="si-a" href="portfolio-sites/forge/index.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
-            </article>
-            <article class="si">
-              <p class="si-n nums">03 / 04</p><h3>Tavola</h3><p class="si-k">Restaurant</p>
-              <p class="si-b">Reserve in the header, tonight&rsquo;s menu right on the page, and photography that does the convincing.</p>
-              <a class="si-a" href="portfolio-sites/restaurant.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
-            </article>
-            <article class="si">
-              <p class="si-n nums">04 / 04</p><h3>Cuts by <em>Roman</em></h3><p class="si-k">Barbershop</p>
-              <p class="si-b">Book Now in the corner of every screen. Services and prices up front, so nobody has to call to ask.</p>
-              <a class="si-a" href="portfolio-sites/barbershop.html" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">&#8599;</span></a>
-            </article>
-          </div>
-          <div class="dots" role="group" aria-label="Choose a build">
-            <button class="on" aria-label="Nebula"></button><button aria-label="Forge"></button><button aria-label="Tavola"></button><button aria-label="Cuts by Roman"></button>
-          </div>
-        </div>
-        <div class="devices" id="devices" aria-hidden="true">
-          <div class="laptop">
-            <div class="lt-screen"><div class="lt-glass">
-              <img class="on" src="img/nebula.jpg" alt="" width="2000" height="1250" loading="lazy">
-              <img src="img/forge.jpg" alt="" width="1400" height="875" loading="lazy">
-              <img src="img/tavola.jpg" alt="" width="1400" height="875" loading="lazy">
-              <img src="img/roman.jpg" alt="" width="1400" height="875" loading="lazy">
-            </div></div>
-            <div class="lt-base"></div>
-          </div>
-          <div class="phone">
-            <i class="ph-island"></i>
-            <div class="ph-screen">
-              <img class="on" src="img/phone-top/nebula.jpg" alt="" width="860" height="1724" loading="lazy">
-              <img src="img/phone-top/forge.jpg" alt="" width="860" height="1724" loading="lazy">
-              <img src="img/phone-top/tavola.jpg" alt="" width="860" height="1724" loading="lazy">
-              <img src="img/phone-top/roman.jpg" alt="" width="860" height="1724" loading="lazy">
-            </div>
-          </div>
-        </div>
+  <!-- 4. THE WORK: four builds, one tap each -->
+  <section class="sec work" id="work">
+    <div class="wrap">
+      <p class="eyebrow">Selected work</p>
+      <div class="grid4">
+      <a class="bub" href="portfolio-sites/restaurant.html" target="_blank" rel="noopener" style="--c:#c9a24a" aria-label="Open Tavola in a new tab">
+        <picture><source media="(max-width:639px)" srcset="img/phone-top/tavola.jpg"><img src="img/tavola.jpg" alt="Tavola, an Italian restaurant site" width="1400" height="875" loading="lazy"></picture>
+        <span class="bub-cap"><span><b>Tavola</b><i>Restaurant</i></span><em>Open site <span aria-hidden="true">&#8599;</span></em></span>
+      </a>
+      <a class="bub" href="portfolio-sites/barbershop.html" target="_blank" rel="noopener" style="--c:#b5532f" aria-label="Open Cuts by Roman in a new tab">
+        <picture><source media="(max-width:639px)" srcset="img/phone-top/roman.jpg"><img src="img/roman.jpg" alt="Cuts by Roman, a barbershop site" width="1400" height="875" loading="lazy"></picture>
+        <span class="bub-cap"><span><b>Cuts by <em>Roman</em></b><i>Barbershop</i></span><em>Open site <span aria-hidden="true">&#8599;</span></em></span>
+      </a>
+      <a class="bub" href="portfolio-sites/forge/index.html" target="_blank" rel="noopener" style="--c:#c8261e" aria-label="Open Forge in a new tab">
+        <picture><source media="(max-width:639px)" srcset="img/phone-top/forge.jpg"><img src="img/forge.jpg" alt="Forge, a gym site" width="1400" height="875" loading="lazy"></picture>
+        <span class="bub-cap"><span><b>Forge</b><i>Gym</i></span><em>Open site <span aria-hidden="true">&#8599;</span></em></span>
+      </a>
+      <a class="bub" href="portfolio-sites/ECLIPSEindex.html" target="_blank" rel="noopener" style="--c:#6b4bd8" aria-label="Open Nebula in a new tab">
+        <picture><source media="(max-width:639px)" srcset="img/phone-top/nebula.jpg"><img src="img/nebula.jpg" alt="Nebula, a supplement storefront" width="1400" height="875" loading="lazy"></picture>
+        <span class="bub-cap"><span><b>Nebula</b><i>Online store</i></span><em>Open site <span aria-hidden="true">&#8599;</span></em></span>
+      </a>
       </div>
     </div>
   </section>
@@ -699,7 +676,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
         <div class="facts">
           <div><b class="nums">0</b><span>templates</span></div>
           <div><b class="nums">0</b><span>page builders</span></div>
-          <div><b class="nums" data-count="1285">1,285</b><span>lines hand-written for this page</span></div>
+          <div><b class="nums" data-count="1262">1,262</b><span>lines hand-written for this page</span></div>
         </div>
       </div>
       <figure class="editor" id="editor">
@@ -1271,7 +1248,7 @@ in vec2 a;void main(){gl_Position=vec4(a,0.,1.);}
     if(tl){ var tr=tl.getBoundingClientRect(), line=vh*.6; tlFill.style.transform='scaleY('+cl((line-tr.top)/tr.height,0,1).toFixed(4)+')';
       steps.forEach(function(s){ s.classList.toggle('lit',s.getBoundingClientRect().top+14<line); }); }
     /* phone: the yes button, when it isn't already on screen */
-    if(mcta){ var pr=pcard.getBoundingClientRect(), shr=show.getBoundingClientRect(), pinned=shr.top<vh*.35&&shr.bottom>vh*.65;
+    if(mcta){ var pr=pcard.getBoundingClientRect(), shr=show?show.getBoundingClientRect():null, pinned=!!shr&&shr.top<vh*.35&&shr.bottom>vh*.65;
       mcta.classList.toggle('on',hr.bottom<vh*.35&&!pinned&&!(pr.top<vh&&pr.bottom>0)&&cr.top>vh*.7); }
   }
   addEventListener('scroll',req,{passive:true});
