@@ -2,7 +2,7 @@
 <!--
   STRAND — v7. "Built to be found." poured in liquid gold.
   Arc: film -> gold pours into the promise -> 50ms -> before/after -> the work ->
-  fully custom code -> what you get -> one week -> one price + answers -> see yours free.
+  fully custom code -> what you get -> one week -> three packages + after-launch promise + answers -> see yours free.
 -->
 <html lang="en" data-theme="dark">
 <head>
@@ -442,21 +442,35 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
 @media(max-width:899px){.about-mark{max-width:240px;border-radius:24px}}
 @media(max-width:559px){.about-actions .btn{width:100%}}
 
-/* ---------- price ---------- */
-.price-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:start}
-@media(min-width:960px){.price-grid{grid-template-columns:1fr 1fr;gap:72px}}
-.price-big{font-family:var(--display);font-size:clamp(56px,7vw,112px);font-weight:640;letter-spacing:-.035em;line-height:.95;margin-top:28px;white-space:nowrap;
+/* ---------- packages ---------- */
+.pkg-head{max-width:720px}
+.price-note{margin-top:22px;color:var(--ink-2);max-width:54ch}
+.pkgs{display:grid;grid-template-columns:1fr;gap:18px;margin-top:48px}
+@media(min-width:900px){.pkgs{grid-template-columns:repeat(3,1fr);gap:20px}}
+.pkg{position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:28px;padding:clamp(26px,3vw,36px);background:linear-gradient(180deg,#17161a 0%,#111113 100%);box-shadow:0 0 0 1px var(--line) inset}
+.pkg--pick{box-shadow:0 0 0 1px rgba(212,176,114,.55) inset,0 40px 100px -40px rgba(212,176,114,.3)}
+.pkg--pick::before{content:"";position:absolute;right:-30%;top:-40%;width:90%;height:90%;border-radius:50%;background:radial-gradient(closest-side,rgba(212,176,114,.22),transparent);pointer-events:none}
+.pkg-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:26px}
+.pkg-name{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.pkg--pick .pkg-name{color:var(--gold)}
+.pkg-tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#1A130A;background:var(--gold-grad);border-radius:99px;padding:5px 10px}
+.pkg-price{position:relative;margin-top:14px;font-family:var(--display);font-size:clamp(48px,4.6vw,64px);font-weight:640;letter-spacing:-.03em;line-height:1;
   background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variation-settings:"opsz" 144}
-.price-big small{display:block;margin-bottom:10px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);-webkit-text-fill-color:var(--ink-3)}
-.price-note{margin-top:24px;color:var(--ink-2);max-width:42ch}
-.price-card{position:relative;overflow:hidden;border-radius:30px;padding:clamp(28px,4vw,44px);background:linear-gradient(180deg,#17161a 0%,#111113 100%);box-shadow:0 0 0 1px var(--line) inset}
-.price-card::before{content:"";position:absolute;right:-30%;top:-40%;width:90%;height:90%;border-radius:50%;background:radial-gradient(closest-side,rgba(212,176,114,.24),transparent);pointer-events:none}
-.price-card h3{position:relative;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
-.inc li{position:relative;display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
-.inc li:first-child{border-top:0}
-.inc svg{flex:none;margin-top:3px}
-.price-card .btn{width:100%;margin-top:26px}
-.price-card .legal{position:relative;margin-top:14px;text-align:center}
+.pkg-for{position:relative;margin-top:12px;color:var(--ink-2)}
+.ticks li{position:relative;display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.45}
+.ticks li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23D4B072' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3.5 9.5 3.5 3.5 7.5-8'/%3E%3C/svg%3E") no-repeat center/18px}
+.ticks li.all{color:var(--ink-3)}
+.ticks li.all::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%23D4B072' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M9 4v10M4 9h10'/%3E%3C/svg%3E")}
+.pkg .ticks{position:relative;flex:1;margin-top:22px}
+.pkg .btn{position:relative;width:100%;margin-top:24px}
+.promise{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+@media(min-width:900px){.promise{grid-template-columns:1fr 1fr;gap:20px}}
+.promise-col{border-radius:28px;padding:clamp(26px,3vw,36px);background:rgba(255,255,255,.025);box-shadow:0 0 0 1px var(--line) inset}
+.promise-col h3{font-family:var(--display);font-size:clamp(24px,2.2vw,30px);font-weight:620;letter-spacing:-.015em;line-height:1.1}
+.promise-col h3 em{font-style:italic;font-weight:740;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.04em}
+.promise-col .ticks{margin-top:16px}
+.pkg-legal{margin-top:22px;text-align:center}
 .faq{margin-top:56px;border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer;list-style:none;font-family:var(--display);font-size:clamp(19px,1.6vw,23px);font-weight:600;letter-spacing:-.01em}
@@ -652,7 +666,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
       <ul class="hero-proof">
         <li><b>Free preview</b><span>before you pay</span></li>
         <li><b>About a week</b><span>message to live</span></li>
-        <li><b class="nums">$300&ndash;1,200</b><span>fixed quote</span></li>
+        <li><b class="nums">$300&ndash;1,200</b><span>3 set packages</span></li>
       </ul>
     </div>
   </section>
@@ -723,7 +737,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
         <div class="facts">
           <div><b class="nums">0</b><span>templates</span></div>
           <div><b class="nums">0</b><span>page builders</span></div>
-          <div><b class="nums" data-count="1370">1,370</b><span>lines hand-written for this page</span></div>
+          <div><b class="nums" data-count="1440">1,440</b><span>lines hand-written for this page</span></div>
         </div>
       </div>
       <figure class="editor" id="editor">
@@ -819,7 +833,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
       <div>
         <p class="eyebrow">Who you&rsquo;re working with</p>
         <h2 class="h-lg">Meet the <em>builder.</em></h2>
-        <p class="lede">I&rsquo;m a web designer based in Salt Lake City who builds custom websites from scratch; clean hand-coded sites that actually look professional. I specialize in restaurants, barbershops, landscaping companies, merch stores, and any small business that needs a site worth showing off. Fast turnaround, unlimited revisions, and I don&rsquo;t disappear after delivery.</p>
+        <p class="lede">I&rsquo;m a web designer based in Salt Lake City who builds custom websites from scratch; clean hand-coded sites that actually look professional. I specialize in restaurants, barbershops, landscaping companies, merch stores, and any small business that needs a site worth showing off. Fast turnaround, free bug fixes for 60 days, and I don&rsquo;t disappear after delivery.</p>
         <div class="about-actions">
           <a class="btn btn--lg btn--ghost" href="https://www.fiverr.com/strand_enterpri" target="_blank" rel="noopener">See my Fiverr <span aria-hidden="true">&#8599;</span></a>
           <a class="btn btn--lg" href="#start">Get a free preview <span class="arr" aria-hidden="true">&rarr;</span></a>
@@ -828,34 +842,87 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
     </div>
   </section>
 
-  <!-- 8. ONE PRICE, and the answers -->
+  <!-- 8. THREE PACKAGES, the after-launch promise, and the answers -->
   <section class="sec" id="pricing">
     <div class="wrap">
-      <div class="price-grid">
-        <div>
-          <p class="eyebrow">Pricing</p>
-          <h2 class="h-lg">One number. <em>Up&nbsp;front.</em></h2>
-          <p class="price-big nums"><small>Custom builds from</small>$300&ndash;$1,200</p>
-          <p class="price-note">Depends on how many pages and how much is custom. You get the exact number before anything starts, and it doesn&rsquo;t move. The preview is free; if you want it, half to start and half the day it goes live.</p>
-        </div>
-        <div class="price-card" id="priceCard">
-          <h3>Every build includes</h3>
-          <ul class="inc">
-            <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#D4B072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Fully custom code, written from a blank file</li>
-            <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#D4B072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Built for phones first, right on every screen</li>
-            <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#D4B072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>A call, book or order button on every page</li>
-            <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#D4B072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Search basics: titles, descriptions, map links</li>
-            <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#D4B072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 9.5 3.5 3.5 7.5-8"/></svg>Set up on your own domain. You own all of it.</li>
+      <div class="pkg-head">
+        <p class="eyebrow">Pricing</p>
+        <h2 class="h-lg">Three packages. <em>No&nbsp;surprises.</em></h2>
+        <p class="price-note">Pick the one that fits. The price is set before anything starts, and it doesn&rsquo;t move. The preview is free; if you want the site, half to start and half the day it goes live.</p>
+      </div>
+
+      <div class="pkgs">
+        <article class="pkg">
+          <div class="pkg-top"><h3 class="pkg-name">Starter</h3></div>
+          <p class="pkg-price nums">$300</p>
+          <p class="pkg-for">Get found and look legit.</p>
+          <ul class="ticks">
+            <li>Up to 3 pages: home, menu or services, contact</li>
+            <li>Hours, map and a tap-to-call button</li>
+            <li>Photos of your work, food or space</li>
+            <li>Set up so Google can find you</li>
           </ul>
-          <a class="btn btn--lg" href="#start">Get a free preview <span class="arr" aria-hidden="true">&rarr;</span></a>
-          <p class="legal">No payment until you&rsquo;ve seen it and said yes.</p>
+          <a class="btn btn--lg btn--ghost" href="#start" data-pkg="Starter ($300)">Start with Starter</a>
+        </article>
+
+        <article class="pkg pkg--pick">
+          <div class="pkg-top"><h3 class="pkg-name">Growth</h3><span class="pkg-tag">Best fit</span></div>
+          <p class="pkg-price nums">$800</p>
+          <p class="pkg-for">Take orders and bookings online.</p>
+          <ul class="ticks">
+            <li>Up to 5 pages</li>
+            <li>Online ordering or booking hooked up (Square, Toast, Booksy and more)</li>
+            <li>A photo gallery</li>
+            <li>A contact form that lands in your inbox</li>
+            <li class="all">Everything in Starter</li>
+          </ul>
+          <a class="btn btn--lg" href="#start" data-pkg="Growth ($800)">Start with Growth <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </article>
+
+        <article class="pkg">
+          <div class="pkg-top"><h3 class="pkg-name">Premium</h3></div>
+          <p class="pkg-price nums">$1,200</p>
+          <p class="pkg-for">A site nobody else in town has.</p>
+          <ul class="ticks">
+            <li>Up to 10 pages</li>
+            <li>A custom feature: ordering, booking or a small online shop</li>
+            <li>Premium motion and animation, like our best demos</li>
+            <li>Help writing the words on every page</li>
+            <li class="all">Everything in Growth</li>
+          </ul>
+          <a class="btn btn--lg btn--ghost" href="#start" data-pkg="Premium ($1,200)">Start with Premium</a>
+        </article>
+      </div>
+
+      <div class="promise">
+        <div class="promise-col">
+          <h3>Every package <em>includes</em></h3>
+          <ul class="ticks">
+            <li>Fully custom code, written from a blank file</li>
+            <li>Built for phones first, right on every screen</li>
+            <li>Your domain paid for the first year</li>
+            <li>2 rounds of changes during the build, then $50 a round</li>
+          </ul>
+        </div>
+        <div class="promise-col">
+          <h3>After it goes <em>live</em></h3>
+          <ul class="ticks">
+            <li>Bugs fixed free for 60 days</li>
+            <li>New changes quoted up front, priced by the size of the job</li>
+            <li>You own the domain and every file. No lock-in.</li>
+            <li>Still here after launch. Text or email anytime.</li>
+          </ul>
         </div>
       </div>
+      <p class="legal pkg-legal">No payment until you&rsquo;ve seen your free preview and said yes.</p>
+
       <div class="faq">
         <details><summary>What does the free preview include?<i aria-hidden="true"></i></summary><p>A working homepage built for your business, sent as a link you can open on your phone. Usually within 48 hours.</p></details>
         <details><summary>What if I don&rsquo;t like it?<i aria-hidden="true"></i></summary><p>Then you don&rsquo;t pay. No invoice, no follow-up pressure.</p></details>
         <details><summary>How does payment work?<i aria-hidden="true"></i></summary><p>Only after you say yes to the preview: half to start, half the day the site goes live.</p></details>
         <details><summary>Who owns the site?<i aria-hidden="true"></i></summary><p>You do. The domain, the files, all of it.</p></details>
+        <details><summary>What happens with the domain after year one?<i aria-hidden="true"></i></summary><p>We pay for the first year. After that it&rsquo;s about $20 a year, billed once a year. Or pay $200 one time and you won&rsquo;t get a domain bill again.</p></details>
+        <details><summary>What counts as a bug?<i aria-hidden="true"></i></summary><p>Anything we built that breaks or stops working the way it did at launch. Those get fixed free for 60 days. New pages, new sections or new features are changes, and you get a price before any work starts.</p></details>
         <details><summary>Why not just use Wix or Squarespace?<i aria-hidden="true"></i></summary><p>You can. But your site will look like a template, because it is one. Yours gets written from scratch, so it looks like your business and nobody else&rsquo;s.</p></details>
       </div>
     </div>
@@ -876,6 +943,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
       <p class="lede">Send your business name. We&rsquo;ll build a working preview and send you the link, usually within 48&nbsp;hours. If it isn&rsquo;t better than what you have, walk away.</p>
       <form class="lead" id="lead" action="https://formspree.io/f/mkoaovye" method="POST">
         <input type="hidden" name="_subject" value="Strand: free preview request">
+        <input type="hidden" name="package" value="Not picked yet">
         <label class="gotcha" aria-hidden="true">Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
         <div class="lead-row">
           <label class="fld"><span>Business name</span><input name="business" required autocomplete="organization" placeholder="e.g. Tavola"></label>
@@ -1323,6 +1391,8 @@ in vec2 a;void main(){gl_Position=vec4(a,0.,1.);}
 
   /* lead form: stays on the page, no mail app */
   var lead=$('#lead');
+  /* a package button remembers which package they picked, so the lead email says it */
+  $$('[data-pkg]').forEach(function(a){ a.addEventListener('click',function(){ var f=lead&&lead.querySelector('[name=package]'); if(f) f.value=a.getAttribute('data-pkg'); }); });
   if(lead&&window.fetch&&window.FormData) lead.addEventListener('submit',function(e){
     e.preventDefault(); var msg=lead.querySelector('.lead-msg'), btn=lead.querySelector('button');
     btn.disabled=true; btn.firstChild.textContent='Sending… '; msg.textContent='';
