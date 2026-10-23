@@ -707,7 +707,7 @@ html.snap .faq{max-height:calc(var(--ph,100vh) - 230px);overflow-y:auto;overscro
         <li data-amt="12"><span>Glycerol powder</span><span class="d">2 g</span><span class="a">$12</span></li>
         <li data-amt="12"><span>Digestive enzymes</span><span class="d">250 mg</span><span class="a">$12</span></li>
       </ol>
-      <div class="r-total"><span>Nine products</span><b id="rTotal">$0</b></div>
+      <div class="r-total"><span>Nine products</span><b id="rTotal">$99</b></div>
       <div class="r-ours"><span>Eclipse Pro Blend, one scoop</span><b>$40</b></div>
       <p class="r-save">You keep <b>$59</b> a month, and eight tubs off your counter.</p>
       <p class="r-note">Estimates from typical US retail prices for single-ingredient products at the same daily dose, 30 servings, September 2026.</p>
@@ -1000,7 +1000,7 @@ showIng('core');
 let receiptDone=false;
 function runReceipt(){
   if(receiptDone)return;receiptDone=true;
-  const rows=$$('#rRows li'), total=$('#rTotal');let sum=0;
+  const rows=$$('#rRows li'), total=$('#rTotal');let sum=0;total.textContent='$0';
   rows.forEach((li,i)=>setTimeout(()=>{
     li.classList.add('in');sum+=+li.dataset.amt;total.textContent='$'+sum;
     if(i===rows.length-1)setTimeout(()=>$('#receipt').classList.add('done'),reduce?0:380);
