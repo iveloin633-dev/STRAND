@@ -501,7 +501,8 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
 .foot{border-top:1px solid var(--line);padding-block:56px calc(56px + env(safe-area-inset-bottom))}
 .foot-row{display:flex;flex-wrap:wrap;gap:18px 32px;justify-content:space-between;align-items:baseline}
 .foot a,.foot .cap{font-size:14px;color:var(--ink-2);transition:color .15s}
-.foot-row a{padding-block:12px;margin-block:-12px}
+.foot-row a{padding-block:12px;margin-block:-12px;overflow-wrap:anywhere}
+.lead-msg a{overflow-wrap:anywhere}
 @media(hover:hover){.foot a:hover{color:var(--gold)}}
 .foot .legal{margin-top:26px;max-width:72ch}
 
@@ -722,7 +723,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
         <div class="facts">
           <div><b class="nums">0</b><span>templates</span></div>
           <div><b class="nums">0</b><span>page builders</span></div>
-          <div><b class="nums" data-count="1369">1,369</b><span>lines hand-written for this page</span></div>
+          <div><b class="nums" data-count="1370">1,370</b><span>lines hand-written for this page</span></div>
         </div>
       </div>
       <figure class="editor" id="editor">
@@ -817,7 +818,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
       <figure class="about-mark"><img src="img/se-monogram.jpg" alt="The Strand Enterprises monogram: a gold S and E woven together" width="640" height="640" loading="lazy"></figure>
       <div>
         <p class="eyebrow">Who you&rsquo;re working with</p>
-        <h2 class="h-lg">Hi, I&rsquo;m <em>Jeremy.</em></h2>
+        <h2 class="h-lg">Meet the <em>builder.</em></h2>
         <p class="lede">I&rsquo;m a web designer based in Salt Lake City who builds custom websites from scratch; clean hand-coded sites that actually look professional. I specialize in restaurants, barbershops, landscaping companies, merch stores, and any small business that needs a site worth showing off. Fast turnaround, unlimited revisions, and I don&rsquo;t disappear after delivery.</p>
         <div class="about-actions">
           <a class="btn btn--lg btn--ghost" href="https://www.fiverr.com/strand_enterpri" target="_blank" rel="noopener">See my Fiverr <span aria-hidden="true">&#8599;</span></a>
@@ -895,7 +896,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
     <div class="foot-row">
       <span class="wordmark">STRAND</span>
       <span class="cap">Fully custom websites &middot; Salt Lake City, Utah</span>
-      <a href="mailto:jeremymford@icloud.com">jeremymford@icloud.com</a>
+      <a href="mailto:strandsites@strandsites.onworkspace.com">strandsites@strandsites.onworkspace.com</a>
       <a href="https://www.fiverr.com/strand_enterpri" target="_blank" rel="noopener">Fiverr</a>
       <a href="privacy.html">Privacy</a>
     </div>
@@ -1332,7 +1333,7 @@ in vec2 a;void main(){gl_Position=vec4(a,0.,1.);}
     fetch(lead.action,{method:'POST',body:fd,headers:{Accept:'application/json'}})
       .then(function(r){ if(!r.ok) throw new Error(r.status); lead.classList.add('sent'); msg.textContent='Got it. Your preview is on the way, usually within 48 hours.'; })
       .catch(function(){ btn.disabled=false; btn.firstChild.textContent='Get my free preview ';
-        msg.innerHTML='That didn’t go through. Email <a href="mailto:jeremymford@icloud.com?subject=Free%20preview">jeremymford@icloud.com</a> instead.'; });
+        msg.innerHTML='That didn’t go through. Email <a href="mailto:strandsites@strandsites.onworkspace.com?subject=Free%20preview">strandsites@strandsites.onworkspace.com</a> instead.'; });
   });
 
   /* one scroll loop for everything that follows the scroll */
