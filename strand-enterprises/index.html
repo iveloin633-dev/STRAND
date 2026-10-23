@@ -432,6 +432,16 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
 .tl-step p{margin-top:12px;color:var(--ink-2);max-width:40ch}
 @media(max-width:959px){.proc-grid{gap:44px}.tl{padding-left:52px}.tl-dot{left:-52px}.tl-step{padding-bottom:60px}}
 
+/* ---------- about: who you're working with ---------- */
+.about-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:900px){.about-grid{grid-template-columns:4fr 7fr;gap:72px}}
+.about-mark{margin:0;max-width:420px;border-radius:30px;overflow:hidden;background:#0b0b0c;box-shadow:0 0 0 1px var(--line),0 30px 90px -30px rgba(212,176,114,.22)}
+.about-mark img{width:100%;height:auto;display:block}
+.about .lede{max-width:52ch}
+.about-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+@media(max-width:899px){.about-mark{max-width:240px;border-radius:24px}}
+@media(max-width:559px){.about-actions .btn{width:100%}}
+
 /* ---------- price ---------- */
 .price-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:start}
 @media(min-width:960px){.price-grid{grid-template-columns:1fr 1fr;gap:72px}}
@@ -618,6 +628,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
     <a href="#work">Work</a>
     <a href="#code" class="wide">Code</a>
     <a href="#process" class="wide">Process</a>
+    <a href="#about" class="wide">About</a>
     <a href="#pricing">Pricing</a>
   </nav>
   <a class="btn" href="#start">Free preview</a>
@@ -711,7 +722,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
         <div class="facts">
           <div><b class="nums">0</b><span>templates</span></div>
           <div><b class="nums">0</b><span>page builders</span></div>
-          <div><b class="nums" data-count="1341">1,341</b><span>lines hand-written for this page</span></div>
+          <div><b class="nums" data-count="1369">1,369</b><span>lines hand-written for this page</span></div>
         </div>
       </div>
       <figure class="editor" id="editor">
@@ -800,6 +811,22 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
     </div>
   </section>
 
+  <!-- 7b. WHO YOU'RE WORKING WITH -->
+  <section class="sec about" id="about">
+    <div class="wrap about-grid">
+      <figure class="about-mark"><img src="img/se-monogram.jpg" alt="The Strand Enterprises monogram: a gold S and E woven together" width="640" height="640" loading="lazy"></figure>
+      <div>
+        <p class="eyebrow">Who you&rsquo;re working with</p>
+        <h2 class="h-lg">Hi, I&rsquo;m <em>Jeremy.</em></h2>
+        <p class="lede">I&rsquo;m a web designer based in Salt Lake City who builds custom websites from scratch; clean hand-coded sites that actually look professional. I specialize in restaurants, barbershops, landscaping companies, merch stores, and any small business that needs a site worth showing off. Fast turnaround, unlimited revisions, and I don&rsquo;t disappear after delivery.</p>
+        <div class="about-actions">
+          <a class="btn btn--lg btn--ghost" href="https://www.fiverr.com/strand_enterpri" target="_blank" rel="noopener">See my Fiverr <span aria-hidden="true">&#8599;</span></a>
+          <a class="btn btn--lg" href="#start">Get a free preview <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 8. ONE PRICE, and the answers -->
   <section class="sec" id="pricing">
     <div class="wrap">
@@ -869,6 +896,7 @@ a,button,summary,[role=slider]{-webkit-tap-highlight-color:transparent}
       <span class="wordmark">STRAND</span>
       <span class="cap">Fully custom websites &middot; Salt Lake City, Utah</span>
       <a href="mailto:jeremymford@icloud.com">jeremymford@icloud.com</a>
+      <a href="https://www.fiverr.com/strand_enterpri" target="_blank" rel="noopener">Fiverr</a>
       <a href="privacy.html">Privacy</a>
     </div>
     <p class="legal">Portfolio pieces are concept builds for fictional businesses, made to show the standard of the work. &copy; 2026 Strand Enterprises.</p>
