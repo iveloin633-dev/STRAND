@@ -161,5 +161,6 @@
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15,root:scroller});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.82);color:#fff;text-align:center;padding:0.6rem 1rem;font-family:sans-serif;font-size:0.78rem;letter-spacing:0.05em;">⚠️ This is a <strong>demo website</strong> — fictional business created as a portfolio example only. Not a real company.</div>
 </body>
 </html>
