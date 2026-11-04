@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Copperleaf Bar Co. — Mobile Bar &amp; Event Cocktails</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0E1512; --ink2:#16201C; --paper:#F3EFE6; --paper2:#E7E0D1;
+  --brass:#C9A36A; --brass2:#E4CB9E; --moss:#4E6B55;
+  --d:"Fraunces",Georgia,serif; --s:"Instrument Sans",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--s);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+h1,h2,h3{font-family:var(--d);font-weight:600;letter-spacing:-.025em;line-height:1.02;font-variation-settings:"opsz" 144}
+em{font-style:italic;color:var(--brass)}
+.eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);font-weight:600;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--brass)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:1.05rem 2.1rem;border-radius:999px;text-decoration:none;transition:.25s;cursor:pointer;border:1px solid transparent}
+.btn-a{background:linear-gradient(180deg,var(--brass2),var(--brass));color:#1A1309}
+.btn-a:hover{filter:brightness(1.08)}
+.btn-b{border-color:rgba(243,239,230,.3);color:var(--paper)}
+.btn-b:hover{border-color:var(--brass);color:var(--brass)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:90;backdrop-filter:blur(14px);
+  background:linear-gradient(to bottom,rgba(14,21,18,.95),rgba(14,21,18,.6));border-bottom:1px solid rgba(243,239,230,.07)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:1.1rem;padding-bottom:1.1rem}
+.logo{font-family:var(--d);font-size:1.25rem;letter-spacing:.14em;color:var(--brass);text-transform:uppercase}
+.nlinks{display:flex;gap:2rem;list-style:none}
+.nlinks a{color:var(--paper);opacity:.72;text-decoration:none;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+.nlinks a:hover{opacity:1;color:var(--brass)}
+@media(max-width:860px){.nlinks{display:none}}
+
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding-bottom:clamp(48px,9vh,100px)}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 78% 12%,rgba(201,163,106,.3),transparent 58%),
+             radial-gradient(90% 70% at 10% 95%,rgba(78,107,85,.42),transparent 60%)}
+.hero::after{content:"";position:absolute;inset:0;opacity:.35;
+  background-image:linear-gradient(rgba(243,239,230,.05) 1px,transparent 1px);background-size:100% 46px}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(3.4rem,13vw,8.4rem);margin:1.4rem 0 1.1rem}
+.hero p.lede{font-size:clamp(1rem,2.4vw,1.2rem);color:rgba(243,239,230,.76);max-width:40ch;line-height:1.6}
+.hero .cta{display:flex;gap:.8rem;margin-top:2.2rem;flex-wrap:wrap}
+.glassart{position:absolute;right:-4%;top:12%;width:min(46vw,540px);opacity:.9;z-index:1}
+@media(max-width:860px){.glassart{right:-18%;top:6%;width:78vw;opacity:.45}}
+
+.stat{display:flex;gap:clamp(22px,5vw,64px);margin-top:3.4rem;flex-wrap:wrap}
+.stat div span{display:block;font-family:var(--d);font-size:1.9rem;color:var(--brass)}
+.stat div small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,239,230,.55)}
+
+section{padding:clamp(72px,11vh,132px) 0}
+.sec-head{max-width:46ch;margin-bottom:clamp(36px,6vh,64px)}
+.sec-head h2{font-size:clamp(2.1rem,5.6vw,3.6rem);margin:1rem 0 .9rem}
+.sec-head p{color:rgba(243,239,230,.68);line-height:1.65}
+
+/* PACKAGES */
+#packages{background:var(--ink2)}
+.pkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.1rem}
+.pkg{border:1px solid rgba(243,239,230,.12);border-radius:20px;padding:2rem 1.7rem 1.8rem;background:rgba(243,239,230,.025);display:flex;flex-direction:column}
+.pkg.feat{border-color:var(--brass);background:rgba(201,163,106,.07)}
+.pkg .tag{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.pkg h3{font-size:1.7rem;margin:.7rem 0 .2rem}
+.pkg .price{font-family:var(--d);font-size:2.6rem;color:var(--paper);letter-spacing:-.03em}
+.pkg .price small{font-family:var(--s);font-size:.74rem;color:rgba(243,239,230,.5);letter-spacing:.1em;text-transform:uppercase}
+.pkg ul{list-style:none;margin:1.3rem 0 1.7rem;display:grid;gap:.72rem}
+.pkg li{font-size:.9rem;color:rgba(243,239,230,.8);padding-left:1.5rem;position:relative;line-height:1.45}
+.pkg li::before{content:"";position:absolute;left:0;top:.52em;width:7px;height:7px;border-radius:50%;background:var(--brass)}
+.pkg .btn{margin-top:auto;text-align:center}
+
+/* MENU */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(28px,5vw,64px)}
+.m-col h3{font-size:1.15rem;color:var(--brass);letter-spacing:.04em;margin-bottom:1.2rem;
+  padding-bottom:.7rem;border-bottom:1px solid rgba(243,239,230,.12)}
+.m-item{display:flex;justify-content:space-between;gap:1rem;padding:.78rem 0}
+.m-item b{font-weight:600;font-size:.98rem}
+.m-item i{display:block;font-style:normal;font-size:.8rem;color:rgba(243,239,230,.5);margin-top:.2rem}
+.m-item span{font-family:var(--d);color:var(--brass);white-space:nowrap}
+
+/* STEPS */
+#how{background:var(--ink2)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem}
+.step{border-top:1px solid rgba(201,163,106,.4);padding-top:1.3rem}
+.step b{font-family:var(--d);font-size:2.3rem;color:rgba(201,163,106,.45);display:block;line-height:1}
+.step h4{font-size:1.1rem;margin:.6rem 0 .5rem;font-family:var(--d);font-weight:600}
+.step p{font-size:.9rem;color:rgba(243,239,230,.65);line-height:1.6}
+
+/* ENQUIRE */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;max-width:620px}
+.form label{display:block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,239,230,.55);margin-bottom:.5rem}
+.form input,.form select,.form textarea{width:100%;background:rgba(243,239,230,.05);border:1px solid rgba(243,239,230,.16);
+  border-radius:12px;padding:.95rem 1rem;color:var(--paper);font-family:var(--s);font-size:.95rem}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--brass)}
+.form .full{grid-column:1/-1}
+.form option{background:var(--ink)}
+footer{border-top:1px solid rgba(243,239,230,.1);padding:3rem 0 5.5rem;font-size:.82rem;color:rgba(243,239,230,.55)}
+footer .wrap{display:flex;justify-content:space-between;gap:1.4rem;flex-wrap:wrap}
+footer a{color:var(--brass);text-decoration:none}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style></head><body>
+
+<nav><div class="wrap">
+  <div class="logo">Copperleaf</div>
+  <ul class="nlinks">
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#enquire">Enquire</a></li>
+  </ul>
+  <a href="#enquire" class="btn btn-a" style="padding:.7rem 1.4rem">Check a date</a>
+</div></nav>
+
+<section class="hero">
+  <svg class="glassart" viewBox="0 0 400 520" fill="none" aria-hidden="true">
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E4CB9E" stop-opacity=".95"/><stop offset="1" stop-color="#C9A36A" stop-opacity=".25"/></linearGradient></defs>
+    <path d="M110 70 L290 70 L205 215 L205 410 L265 448 L135 448 L195 410 L195 215 Z" stroke="url(#g1)" stroke-width="3"/>
+    <path d="M132 100 L268 100 L204 208 Z" fill="url(#g1)" opacity=".5"/>
+    <circle cx="262" cy="128" r="17" fill="#C9A36A" opacity=".75"/>
+    <path d="M262 111 q16 12 0 34" stroke="#0E1512" stroke-width="2" fill="none" opacity=".5"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">Mobile bar &middot; Salt Lake &amp; Park City</div>
+    <h1>Your bar,<br><em>wherever</em><br>you are.</h1>
+    <p class="lede">A fully stocked bar, real glassware and two bartenders who know what they&rsquo;re doing — rolled up to your venue, your backyard, or a field in the mountains.</p>
+    <div class="cta">
+      <a href="#enquire" class="btn btn-a">Check your date</a>
+      <a href="#packages" class="btn btn-b">See packages</a>
+    </div>
+    <div class="stat">
+      <div><span>190+</span><small>Events poured</small></div>
+      <div><span>2&ndash;6 hrs</span><small>Typical service</small></div>
+      <div><span>Dry hire</span><small>You buy the alcohol</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="packages"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">Packages</div>
+    <h2>Three ways to <em>pour</em>.</h2>
+    <p>Prices are per event, not per head, and they include setup, service and the whole pack-down. You buy the alcohol — we handle everything it touches.</p>
+  </div>
+  <div class="pkgs">
+    <div class="pkg reveal"><div class="tag">Up to 50 guests</div><h3>The Pop-Up</h3>
+      <div class="price">$650<small> / event</small></div>
+      <ul><li>One bartender, 3 hours of service</li><li>Portable bar, ice and coolers</li><li>Glassware, shakers, garnish kit</li><li>Two signature cocktails on the menu</li><li>Setup and pack-down included</li></ul>
+      <a href="#enquire" class="btn btn-b">Check a date</a></div>
+    <div class="pkg feat reveal"><div class="tag">Most booked &middot; Up to 120</div><h3>The Celebration</h3>
+      <div class="price">$1,150<small> / event</small></div>
+      <ul><li>Two bartenders, 4 hours of service</li><li>Copper bar front and back bar display</li><li>Four cocktails plus mocktails</li><li>Dirty soda station on request</li><li>Printed menus in your colours</li></ul>
+      <a href="#enquire" class="btn btn-a">Check a date</a></div>
+    <div class="pkg reveal"><div class="tag">Weddings &amp; corporate</div><h3>The Full Service</h3>
+      <div class="price">$1,900<small> / event</small></div>
+      <ul><li>Three bartenders plus a barback</li><li>Six hours, two service points</li><li>Menu built with you in a tasting</li><li>Welcome-drink tray on arrival</li><li>Shopping list so you buy exactly enough</li></ul>
+      <a href="#enquire" class="btn btn-b">Check a date</a></div>
+  </div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">The menu</div>
+    <h2>Built for <em>your</em> night.</h2>
+    <p>A starting point, not a fixed list. Most couples swap two of these for something that means something to them.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="m-col reveal"><h3>Signatures</h3>
+      <div class="m-item"><div><b>Copperleaf Old Fashioned</b><i>Brown sugar, black walnut, orange oil</i></div><span>House</span></div>
+      <div class="m-item"><div><b>Garden Spritz</b><i>Elderflower, cucumber, soda, mint</i></div><span>House</span></div>
+      <div class="m-item"><div><b>Smoked Pear Sour</b><i>Pear, lemon, cinnamon, smoked rim</i></div><span>House</span></div>
+      <div class="m-item"><div><b>The Wasatch Mule</b><i>Ginger, lime, bitters, copper mug</i></div><span>House</span></div>
+    </div>
+    <div class="m-col reveal"><h3>Zero proof</h3>
+      <div class="m-item"><div><b>Dirty Soda Bar</b><i>Coconut, lime, vanilla, your soda of choice</i></div><span>Add-on</span></div>
+      <div class="m-item"><div><b>Rosemary Lemonade</b><i>Pressed lemon, rosemary syrup</i></div><span>Included</span></div>
+      <div class="m-item"><div><b>Blackberry Shrub</b><i>Vinegar shrub, soda, fresh berries</i></div><span>Included</span></div>
+      <div class="m-item"><div><b>Espresso Nightcap</b><i>Decaf, oat milk, cocoa dust</i></div><span>Add-on</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">How it works</div>
+    <h2>Four steps, <em>no guesswork</em>.</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><b>01</b><h4>Check your date</h4><p>Send the date and a rough guest count. You get a yes or no within a day, not a week.</p></div>
+    <div class="step reveal"><b>02</b><h4>Pick a package</h4><p>We talk through what the night looks like and settle the menu together.</p></div>
+    <div class="step reveal"><b>03</b><h4>We send a shopping list</h4><p>Exact bottles, exact quantities. No leftover cases, no running dry at 9pm.</p></div>
+    <div class="step reveal"><b>04</b><h4>We show up early</h4><p>Bar in, ice down, garnish cut, first drink poured the minute doors open.</p></div>
+  </div>
+</div></section>
+
+<section id="enquire"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">Enquire</div>
+    <h2>Check your <em>date</em>.</h2>
+    <p>Tell us when and roughly how many. We&rsquo;ll come back with availability and a straight price.</p>
+  </div>
+  <form class="form reveal" onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;grid-column:1/-1;font-family:var(--d);font-size:1.5rem;color:var(--brass)&quot;>Thanks — we&rsquo;ll be in touch within a day.</p>'">
+    <div><label>Your name</label><input required placeholder="Jamie Rivera"></div>
+    <div><label>Email</label><input type="email" required placeholder="jamie@example.com"></div>
+    <div><label>Event date</label><input type="date" required></div>
+    <div><label>Guests</label><input type="number" min="10" placeholder="85"></div>
+    <div class="full"><label>Package</label><select><option>The Pop-Up — $650</option><option selected>The Celebration — $1,150</option><option>The Full Service — $1,900</option><option>Not sure yet</option></select></div>
+    <div class="full"><label>Anything we should know?</label><textarea rows="3" placeholder="Backyard wedding, 90 guests, want a dirty soda station"></textarea></div>
+    <div class="full"><button class="btn btn-a" style="width:100%;border:0">Send enquiry</button></div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <div><strong style="color:var(--paper)">Copperleaf Bar Co.</strong><br>Salt Lake City &middot; Park City &middot; Heber</div>
+  <div>DABC-compliant dry hire<br><a href="tel:+18015550147">(801) 555-0147</a></div>
+  <div>hello@copperleafbar.example<br><a href="#enquire">Check a date</a></div>
+</div></footer>
+
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.82);color:#fff;text-align:center;padding:0.6rem 1rem;font-family:sans-serif;font-size:0.78rem;letter-spacing:0.05em;">⚠️ This is a <strong>demo website</strong> — fictional business created as a portfolio example only. Not a real company.</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+</script>
+</body></html>

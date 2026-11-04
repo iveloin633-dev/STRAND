@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bright &amp; Early — House Cleaning, Priced Up Front</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FBF7F0; --cream2:#F2EADC; --ink:#122420; --ink2:rgba(18,36,32,.68); --ink3:rgba(18,36,32,.42);
+  --teal:#136B5B; --teal2:#0E5547; --coral:#E8613C; --line:rgba(18,36,32,.12);
+  --d:"Bricolage Grotesque",system-ui,sans-serif; --s:"Instrument Sans",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--s);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(20px,5vw,52px)}
+h1,h2,h3{font-family:var(--d);font-weight:700;letter-spacing:-.035em;line-height:1.02}
+.hl{color:var(--teal)}
+.eyebrow{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--coral);font-weight:700}
+.btn{display:inline-block;font-weight:700;font-size:.9rem;padding:1.05rem 2rem;border-radius:999px;
+  text-decoration:none;cursor:pointer;border:2px solid var(--ink);transition:.2s}
+.btn-a{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 6px 0 var(--teal2)}
+.btn-a:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--teal2)}
+.btn-b{background:transparent;color:var(--ink)}
+.btn-b:hover{background:var(--ink);color:var(--cream)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(251,247,240,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(20px,5vw,52px)}
+.logo{font-family:var(--d);font-weight:800;font-size:1.2rem;letter-spacing:-.04em}
+.logo span{color:var(--coral)}
+.nlinks{display:flex;gap:1.9rem;list-style:none}
+.nlinks a{color:var(--ink2);text-decoration:none;font-size:.86rem;font-weight:500}
+.nlinks a:hover{color:var(--teal)}
+@media(max-width:880px){.nlinks{display:none}}
+
+.hero{padding:clamp(130px,17vh,190px) 0 clamp(60px,9vh,100px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-14%;top:4%;width:min(62vw,660px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,rgba(19,107,91,.16),rgba(232,97,60,.1) 58%,transparent 72%)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.9rem,9.2vw,5.6rem);margin:1rem 0 1.2rem;max-width:16ch}
+.hero p.lede{font-size:clamp(1.02rem,2.3vw,1.22rem);color:var(--ink2);max-width:46ch;line-height:1.62}
+.hero .cta{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap;align-items:center}
+.trust{display:flex;gap:clamp(20px,4vw,52px);margin-top:3rem;flex-wrap:wrap}
+.trust div b{font-family:var(--d);font-size:1.6rem;display:block}
+.trust div small{font-size:.76rem;color:var(--ink3)}
+
+section{padding:clamp(66px,10vh,116px) 0}
+.sec-head{max-width:44ch;margin-bottom:clamp(32px,5vh,56px)}
+.sec-head h2{font-size:clamp(2rem,5.4vw,3.3rem);margin:.8rem 0 .8rem}
+.sec-head p{color:var(--ink2);line-height:1.65}
+
+#prices{background:var(--cream2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1rem}
+.card{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:1.8rem 1.6rem;box-shadow:7px 7px 0 var(--ink);display:flex;flex-direction:column}
+.card h3{font-size:1.4rem;margin-bottom:.3rem}
+.card .p{font-family:var(--d);font-weight:800;font-size:2.5rem;letter-spacing:-.04em;color:var(--teal);margin:.5rem 0}
+.card .p small{font-family:var(--s);font-size:.74rem;font-weight:500;color:var(--ink3);letter-spacing:.04em}
+.card ul{list-style:none;display:grid;gap:.6rem;margin:1rem 0 1.5rem}
+.card li{font-size:.9rem;color:var(--ink2);padding-left:1.45rem;position:relative;line-height:1.45}
+.card li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:800}
+.card .btn{margin-top:auto;text-align:center}
+
+/* estimator */
+.est{background:var(--ink);color:var(--cream);border-radius:26px;padding:clamp(26px,4vw,44px);display:grid;
+  grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,48px);align-items:center}
+@media(max-width:820px){.est{grid-template-columns:1fr}}
+.est h3{font-size:clamp(1.6rem,3.6vw,2.2rem);color:#fff;margin-bottom:.6rem}
+.est p{color:rgba(251,247,240,.68);font-size:.94rem;line-height:1.6;margin-bottom:1.5rem}
+.row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid rgba(251,247,240,.14)}
+.row span{font-size:.94rem}
+.stepper{display:flex;align-items:center;gap:.75rem}
+.stepper button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(251,247,240,.3);
+  background:transparent;color:var(--cream);font-size:1.1rem;cursor:pointer;line-height:1}
+.stepper button:hover{border-color:var(--coral);color:var(--coral)}
+.stepper b{font-family:var(--d);font-size:1.2rem;min-width:1.6ch;text-align:center}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{padding:.5rem 1rem;border-radius:999px;border:1px solid rgba(251,247,240,.3);font-size:.82rem;cursor:pointer}
+.chip.on{background:var(--coral);border-color:var(--coral);color:#fff;font-weight:600}
+.quote{text-align:center;background:rgba(251,247,240,.07);border-radius:20px;padding:2rem 1.4rem}
+.quote small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,247,240,.55)}
+.quote .n{font-family:var(--d);font-weight:800;font-size:clamp(3rem,9vw,4.4rem);letter-spacing:-.05em;color:#fff;line-height:1}
+.quote p{font-size:.82rem;color:rgba(251,247,240,.6);margin:.4rem 0 1.3rem}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.5rem}
+.step{border-top:3px solid var(--coral);padding-top:1.1rem}
+.step b{font-family:var(--d);font-weight:800;font-size:2rem;color:var(--ink3);display:block;line-height:1}
+.step h4{font-size:1.05rem;margin:.5rem 0 .45rem;font-family:var(--d)}
+.step p{font-size:.88rem;color:var(--ink2);line-height:1.6}
+
+#words{background:var(--cream2)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1rem}
+.q{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:1.6rem}
+.q p{font-size:.98rem;line-height:1.6;margin-bottom:1rem}
+.q b{font-size:.86rem}
+.q small{color:var(--ink3);font-size:.8rem}
+.disc{font-size:.76rem;color:var(--ink3);margin-top:1.2rem}
+
+#book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+@media(max-width:860px){#book .wrap{grid-template-columns:1fr}}
+.form{display:grid;gap:.85rem}
+.form label{display:block;font-size:.74rem;font-weight:600;color:var(--ink2);margin-bottom:.4rem}
+.form input,.form select{width:100%;background:#fff;border:2px solid var(--ink);border-radius:12px;
+  padding:.9rem 1rem;font-family:var(--s);font-size:.95rem;color:var(--ink)}
+.form input:focus,.form select:focus{outline:none;border-color:var(--teal)}
+.callbox{background:var(--teal);color:#fff;border-radius:22px;padding:2rem;align-self:start}
+.callbox h3{color:#fff;font-size:1.6rem;margin-bottom:.6rem}
+.callbox p{font-size:.92rem;opacity:.86;line-height:1.6;margin-bottom:1.4rem}
+.callbox a{display:block;background:#fff;color:var(--teal);text-align:center;font-family:var(--d);font-weight:800;
+  font-size:1.5rem;padding:1rem;border-radius:14px;text-decoration:none;letter-spacing:-.02em}
+footer{border-top:2px solid var(--ink);padding:2.6rem 0 5.5rem;font-size:.85rem;color:var(--ink2)}
+footer .wrap{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+</style></head><body>
+
+<nav><div class="wrap">
+  <div class="logo">Bright <span>&amp;</span> Early</div>
+  <ul class="nlinks">
+    <li><a href="#prices">Prices</a></li><li><a href="#estimate">Instant estimate</a></li>
+    <li><a href="#how">How it works</a></li><li><a href="#book">Book</a></li>
+  </ul>
+  <a href="tel:+18015550188" class="btn btn-a" style="padding:.68rem 1.3rem">Call now</a>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">House cleaning &middot; Salt Lake Valley</div>
+  <h1>Know the price <span class="hl">before</span> we knock.</h1>
+  <p class="lede">No walkthroughs, no &ldquo;we&rsquo;ll get back to you with a quote.&rdquo; Pick your rooms, see your price, book the slot. Same cleaner every visit.</p>
+  <div class="cta">
+    <a href="#estimate" class="btn btn-a">Get my price</a>
+    <a href="#prices" class="btn btn-b">See the rates</a>
+  </div>
+  <div class="trust">
+    <div><b>$129</b><small>Starting price</small></div>
+    <div><b>Same day</b><small>Confirmation</small></div>
+    <div><b>Bonded</b><small>&amp; insured</small></div>
+    <div><b>Re-clean</b><small>Free if you're unhappy</small></div>
+  </div>
+</div></section>
+
+<section id="prices"><div class="wrap">
+  <div class="sec-head reveal"><div class="eyebrow">Straight rates</div>
+    <h2>Everything priced <span class="hl">on the page</span>.</h2>
+    <p>Flat rates for a standard 3 bed, 2 bath home. Bigger place? The estimator below adjusts it in real time.</p></div>
+  <div class="cards">
+    <div class="card reveal"><h3>Standard clean</h3><div class="p">$129<small> / visit</small></div>
+      <ul><li>Kitchen, bathrooms, floors</li><li>Dusting and surfaces</li><li>Beds made, bins out</li><li>Roughly 2.5 hours</li></ul>
+      <a href="#book" class="btn btn-b">Book this</a></div>
+    <div class="card reveal"><h3>Deep clean</h3><div class="p">$245<small> / visit</small></div>
+      <ul><li>Everything in standard</li><li>Inside oven and fridge</li><li>Baseboards, vents, door frames</li><li>Window sills and tracks</li></ul>
+      <a href="#book" class="btn btn-a">Book this</a></div>
+    <div class="card reveal"><h3>Move in / out</h3><div class="p">$310<small> / visit</small></div>
+      <ul><li>Whole-home deep clean, empty</li><li>Inside all cabinets and closets</li><li>Appliances in and out</li><li>Landlord checklist followed</li></ul>
+      <a href="#book" class="btn btn-b">Book this</a></div>
+  </div>
+</div></section>
+
+<section id="estimate"><div class="wrap">
+  <div class="est reveal">
+    <div>
+      <h3>Your price, right now.</h3>
+      <p>Move the numbers. No email required, no waiting on a callback.</p>
+      <div class="row"><span>Bedrooms</span><div class="stepper">
+        <button onclick="bump('bed',-1)">&minus;</button><b id="bed">3</b><button onclick="bump('bed',1)">+</button></div></div>
+      <div class="row"><span>Bathrooms</span><div class="stepper">
+        <button onclick="bump('bath',-1)">&minus;</button><b id="bath">2</b><button onclick="bump('bath',1)">+</button></div></div>
+      <div class="row" style="border:0;padding-top:1.1rem"><span>Type of clean</span></div>
+      <div class="chips">
+        <div class="chip on" data-k="std">Standard</div><div class="chip" data-k="deep">Deep</div><div class="chip" data-k="move">Move in / out</div>
+      </div>
+    </div>
+    <div class="quote">
+      <small>Your estimate</small>
+      <div class="n" id="total">$129</div>
+      <p id="meta">3 bed &middot; 2 bath &middot; standard</p>
+      <a href="#book" class="btn btn-a" style="width:100%;text-align:center">Book this slot</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="sec-head reveal"><div class="eyebrow">How it works</div><h2>Four steps, <span class="hl">no phone tag</span>.</h2></div>
+  <div class="steps">
+    <div class="step reveal"><b>01</b><h4>Pick your price</h4><p>Use the estimator. What it says is what you pay.</p></div>
+    <div class="step reveal"><b>02</b><h4>Choose a slot</h4><p>Pick a morning or afternoon. Confirmed the same day.</p></div>
+    <div class="step reveal"><b>03</b><h4>We clean</h4><p>Same cleaner each visit, so nobody has to be re-trained on your house.</p></div>
+    <div class="step reveal"><b>04</b><h4>Pay after</h4><p>Card or transfer once you've seen it. Not happy? We re-clean free.</p></div>
+  </div>
+</div></section>
+
+<section id="words"><div class="wrap">
+  <div class="sec-head reveal"><div class="eyebrow">What clients say</div><h2>Mostly about <span class="hl">the price being the price</span>.</h2></div>
+  <div class="quotes">
+    <div class="q reveal"><p>&ldquo;First cleaner who told me the cost before showing up. It was the cost. Revolutionary, apparently.&rdquo;</p><b>Marisol T.</b><br><small>Sugar House</small></div>
+    <div class="q reveal"><p>&ldquo;Booked the move-out clean at 9am, confirmed by lunch. Got the full deposit back.&rdquo;</p><b>Dev R.</b><br><small>Millcreek</small></div>
+    <div class="q reveal"><p>&ldquo;Same two people every fortnight. They know where things go now, which is half the battle.&rdquo;</p><b>Anna K.</b><br><small>Holladay</small></div>
+  </div>
+  <p class="disc">Sample testimonials — this is a demo site for a fictional business.</p>
+</div></section>
+
+<section id="book"><div class="wrap">
+  <div>
+    <div class="sec-head reveal"><div class="eyebrow">Book</div><h2>Pick a slot.</h2>
+      <p>Takes about thirty seconds. You&rsquo;ll get a confirmation the same day.</p></div>
+    <form class="form reveal" onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;font-family:var(--d);font-size:1.4rem;color:var(--teal)&quot;>Booked — confirmation on its way.</p>'">
+      <div><label>Name</label><input required placeholder="Sam Alvarez"></div>
+      <div><label>Phone</label><input type="tel" required placeholder="(801) 555-0123"></div>
+      <div><label>Address</label><input required placeholder="1200 E, Salt Lake City"></div>
+      <div><label>Preferred day</label><input type="date" required></div>
+      <div><label>Clean type</label><select><option>Standard — $129</option><option>Deep — $245</option><option>Move in / out — $310</option></select></div>
+      <button class="btn btn-a" style="border:0">Request this slot</button>
+    </form>
+  </div>
+  <div class="callbox reveal">
+    <h3>Rather just call?</h3>
+    <p>We answer between 7am and 6pm, Monday to Saturday. One tap, no phone tree, no hold music.</p>
+    <a href="tel:+18015550188">(801) 555-0188</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><strong style="color:var(--ink)">Bright &amp; Early</strong><br>Salt Lake Valley &middot; Bonded &amp; insured</div>
+  <div>7am&ndash;6pm, Mon&ndash;Sat<br>hello@brightandearly.example</div>
+  <div><a href="tel:+18015550188" style="color:var(--teal);font-weight:600">(801) 555-0188</a></div>
+</div></footer>
+
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.82);color:#fff;text-align:center;padding:0.6rem 1rem;font-family:sans-serif;font-size:0.78rem;letter-spacing:0.05em;">⚠️ This is a <strong>demo website</strong> — fictional business created as a portfolio example only. Not a real company.</div>
+
+<script>
+const S={bed:3,bath:2,kind:'std'};
+const BASE={std:129,deep:245,move:310}, PB={std:18,deep:30,move:38}, PT={std:22,deep:34,move:42};
+const LBL={std:'standard',deep:'deep clean',move:'move in / out'};
+function calc(){
+  const t=BASE[S.kind]+Math.max(0,S.bed-3)*PB[S.kind]+Math.max(0,S.bath-2)*PT[S.kind];
+  document.getElementById('total').textContent='$'+t;
+  document.getElementById('meta').textContent=S.bed+' bed · '+S.bath+' bath · '+LBL[S.kind];
+}
+function bump(k,d){S[k]=Math.min(8,Math.max(1,S[k]+d));document.getElementById(k).textContent=S[k];calc()}
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on');S.kind=c.dataset.k;calc()}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+calc();
+</script>
+</body></html>
